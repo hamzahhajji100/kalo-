@@ -1,0 +1,16 @@
+node_modules/
+dist/
+coverage/
+.expo/
+.wrangler/
+ios/
+android/
+*.log
+.env
+.env.*
+!.env.example
+.dev.vars
+*.db
+!packages/food-db/fixtures/*.db
+web-build/
+.DS_Store

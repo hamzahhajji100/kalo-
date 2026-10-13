@@ -1,0 +1,33 @@
+{
+  "tabs": {
+    "today": "Today",
+    "diary": "Diary",
+    "add": "Add",
+    "progress": "Progress",
+    "profile": "Profile"
+  },
+  "add": {
+    "title": "What did you eat?",
+    "photo": "Photo",
+    "photoHint": "AI recognises your food",
+    "barcode": "Barcode",
+    "barcodeHint": "Scan a product",
+    "search": "Search",
+    "searchHint": "Foods & dishes",
+    "quick": "Quick calories",
+    "quickHint": "Just log kcal",
+    "recipe": "Recipe",
+    "recipeHint": "Your own recipes"
+  },
+  "common": {
+    "close": "Close",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "retry": "Try again",
+    "kcal": "kcal",
+    "g": "g"
+  },
+  "macros": { "protein": "Protein", "carbs": "Carbs", "fat": "Fat" },
+  "comingSoon": "This section is built in the next milestone."
+}

@@ -1,0 +1,33 @@
+{
+  "tabs": {
+    "today": "Heute",
+    "diary": "Tagebuch",
+    "add": "Hinzufügen",
+    "progress": "Fortschritt",
+    "profile": "Profil"
+  },
+  "add": {
+    "title": "Was hast du gegessen?",
+    "photo": "Foto",
+    "photoHint": "KI erkennt dein Essen",
+    "barcode": "Barcode",
+    "barcodeHint": "Produkt scannen",
+    "search": "Suchen",
+    "searchHint": "Lebensmittel & Gerichte",
+    "quick": "Schnell-Kalorien",
+    "quickHint": "Nur kcal eintragen",
+    "recipe": "Rezept",
+    "recipeHint": "Eigene Rezepte"
+  },
+  "common": {
+    "close": "Schließen",
+    "save": "Speichern",
+    "cancel": "Abbrechen",
+    "delete": "Löschen",
+    "retry": "Erneut versuchen",
+    "kcal": "kcal",
+    "g": "g"
+  },
+  "macros": { "protein": "Protein", "carbs": "Kohlenhydrate", "fat": "Fett" },
+  "comingSoon": "Dieser Bereich wird im nächsten Meilenstein gebaut."
+}

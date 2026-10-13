@@ -1,0 +1,41 @@
+{
+  "expo": {
+    "name": "Kalo",
+    "slug": "kalo",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "automatic",
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.hamzahhajji.kalo"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#158054",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false,
+      "package": "com.hamzahhajji.kalo"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-status-bar",
+      "expo-sqlite",
+      "expo-localization",
+      "expo-sharing",
+      "expo-image",
+      "expo-font",
+      "expo-splash-screen"
+    ],
+    "scheme": "kalo",
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}
