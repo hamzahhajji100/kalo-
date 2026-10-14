@@ -228,5 +228,46 @@
     "emptyTemplates": "No templates",
     "emptyTemplatesHint": "Save a meal as a template via “…” in the diary.",
     "applyTemplate": "Add {{count}} entries?"
+  },
+  "barcode": {
+    "hint": "Hold the barcode inside the frame",
+    "lookingUp": "Looking up {{code}} …",
+    "torch": "Torch",
+    "permissionTitle": "Camera access needed",
+    "permissionBody": "Kalo needs the camera to scan barcodes. No images are stored.",
+    "allow": "Allow camera",
+    "openSettings": "Open settings",
+    "notFoundTitle": "Product not found",
+    "notFoundBody": "Barcode {{code}} isn't in any database yet. Add the product with the details from the package – Kalo will then know it offline too.",
+    "offlineTitle": "No connection",
+    "offlineBody": "This product isn't saved on your device and can't be looked up online right now.",
+    "createProduct": "Add product",
+    "scanAgain": "Scan again",
+    "manual": "Type barcode",
+    "manualLabel": "Barcode number",
+    "lookup": "Look up",
+    "recent": "Recently scanned"
+  },
+  "customFood": {
+    "title": "Add product",
+    "save": "Save & continue",
+    "name": "Product name",
+    "namePlaceholder": "e.g. Chocolate protein bar",
+    "brand": "Brand (optional)",
+    "barcode": "Barcode (optional)",
+    "isLiquid": "Drink (values per 100 ml)",
+    "per": "Nutrition per {{unit}}",
+    "saturatedFatShort": "of which saturates",
+    "sugarShort": "of which sugars",
+    "portions": "Serving & package (optional)",
+    "errors": {
+      "name": "Please enter a name.",
+      "number": "Please enter a number.",
+      "range": "Value out of range.",
+      "sugar": "Sugars can't exceed carbohydrates.",
+      "saturatedFat": "Saturates can't exceed fat.",
+      "barcode": "A barcode has 8 to 14 digits.",
+      "plausibility": "The calories don't match the macronutrients. Please check the values per 100 g."
+    }
   }
 }

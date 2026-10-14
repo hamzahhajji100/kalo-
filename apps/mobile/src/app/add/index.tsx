@@ -18,7 +18,7 @@ type Option = {
 // Options without a pathname are built in later milestones and shown as "coming soon".
 const OPTIONS: Option[] = [
   { key: 'photo', icon: 'camera' },
-  { key: 'barcode', icon: 'barcode-outline' },
+  { key: 'barcode', icon: 'barcode-outline', pathname: '/add/barcode' },
   { key: 'search', icon: 'search', pathname: '/add/search' },
   { key: 'quick', icon: 'flash-outline', pathname: '/add/quick' },
   { key: 'recipe', icon: 'restaurant-outline', pathname: '/recipes' },

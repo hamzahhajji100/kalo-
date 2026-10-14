@@ -228,5 +228,46 @@
     "emptyTemplates": "Keine Vorlagen",
     "emptyTemplatesHint": "Speichere eine Mahlzeit im Tagebuch über „…“ als Vorlage.",
     "applyTemplate": "{{count}} Einträge hinzufügen?"
+  },
+  "barcode": {
+    "hint": "Barcode in den Rahmen halten",
+    "lookingUp": "Suche {{code}} …",
+    "torch": "Taschenlampe",
+    "permissionTitle": "Kamera-Zugriff benötigt",
+    "permissionBody": "Kalo braucht die Kamera, um Barcodes zu scannen. Bilder werden dabei nicht gespeichert.",
+    "allow": "Kamera erlauben",
+    "openSettings": "Einstellungen öffnen",
+    "notFoundTitle": "Produkt nicht gefunden",
+    "notFoundBody": "Der Barcode {{code}} ist noch in keiner Datenbank. Lege das Produkt mit den Angaben von der Verpackung an – danach kennt Kalo es auch offline.",
+    "offlineTitle": "Keine Verbindung",
+    "offlineBody": "Das Produkt ist nicht auf deinem Gerät gespeichert und kann gerade nicht online gesucht werden.",
+    "createProduct": "Produkt anlegen",
+    "scanAgain": "Erneut scannen",
+    "manual": "Barcode eintippen",
+    "manualLabel": "Barcode-Nummer",
+    "lookup": "Suchen",
+    "recent": "Zuletzt gescannt"
+  },
+  "customFood": {
+    "title": "Produkt anlegen",
+    "save": "Speichern & weiter",
+    "name": "Produktname",
+    "namePlaceholder": "z. B. Proteinriegel Schoko",
+    "brand": "Marke (optional)",
+    "barcode": "Barcode (optional)",
+    "isLiquid": "Getränk (Angaben pro 100 ml)",
+    "per": "Nährwerte pro {{unit}}",
+    "saturatedFatShort": "davon gesättigt",
+    "sugarShort": "davon Zucker",
+    "portions": "Portion & Packung (optional)",
+    "errors": {
+      "name": "Bitte einen Namen eingeben.",
+      "number": "Bitte eine Zahl eingeben.",
+      "range": "Wert außerhalb des gültigen Bereichs.",
+      "sugar": "Zucker kann nicht mehr sein als Kohlenhydrate.",
+      "saturatedFat": "Gesättigte Fettsäuren können nicht mehr sein als Fett.",
+      "barcode": "Ein Barcode hat 8 bis 14 Ziffern.",
+      "plausibility": "Die Kalorien passen nicht zu den Makronährstoffen. Bitte prüfe die Angaben pro 100 g."
+    }
   }
 }

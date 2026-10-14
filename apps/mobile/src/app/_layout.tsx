@@ -37,7 +37,12 @@ function RootStack() {
         />
         <Stack.Screen name="add/quick" options={{ presentation: 'modal' }} />
         <Stack.Screen name="add/search" options={{ presentation: 'modal' }} />
+        <Stack.Screen
+          name="add/barcode"
+          options={{ presentation: 'fullScreenModal', animation: 'fade' }}
+        />
         <Stack.Screen name="food/[id]" options={{ presentation: 'modal' }} />
+        <Stack.Screen name="food/new" options={{ presentation: 'modal' }} />
         <Stack.Screen name="recipes/index" options={{ presentation: 'modal' }} />
         <Stack.Screen name="recipes/edit" options={{ presentation: 'modal' }} />
         <Stack.Screen name="entry/[id]" options={{ presentation: 'modal' }} />

@@ -32,7 +32,23 @@
       "expo-image",
       "expo-font",
       "expo-splash-screen",
-      "expo-asset"
+      "expo-asset",
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Kalo nutzt die Kamera, um Barcodes zu scannen und Fotos deiner Mahlzeiten zu analysieren.",
+          "microphonePermission": false,
+          "recordAudioAndroid": false
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Kalo greift auf deine Fotos zu, wenn du ein Bild deiner Mahlzeit zur Analyse auswählst.",
+          "cameraPermission": "Kalo nutzt die Kamera, um Fotos deiner Mahlzeiten zu analysieren.",
+          "microphonePermission": false
+        }
+      ]
     ],
     "scheme": "kalo",
     "experiments": {
