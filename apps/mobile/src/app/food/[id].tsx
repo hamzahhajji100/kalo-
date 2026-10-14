@@ -20,6 +20,7 @@ import { useAddTarget } from '@/features/diary/useAddTarget';
 import { foodKey } from '@/features/foods/navigation';
 import { NutritionTable } from '@/features/foods/NutritionTable';
 import { initialAmount, unitOptions, type UnitOption } from '@/features/foods/portions';
+import { useAnalysis } from '@/features/photo/analysisStore';
 import { useRecipeDraft } from '@/features/recipes/draftStore';
 import { fetchOffProduct } from '@/features/search/openFoodFacts';
 import { resolveFoodLocal } from '@/features/search/searchService';
@@ -75,7 +76,7 @@ function FoodDetail({ food }: { food: Food }) {
   const { color } = useTheme();
   const qc = useQueryClient();
   const params = useLocalSearchParams<{ mode?: string; grams?: string; via?: string }>();
-  const mode = params.mode === 'recipe' ? 'recipe' : 'log';
+  const mode = params.mode === 'recipe' || params.mode === 'photo' ? params.mode : 'log';
   const target = useAddTarget();
   const addIngredient = useRecipeDraft((s) => s.addIngredient);
 
@@ -130,6 +131,11 @@ function FoodDetail({ food }: { food: Food }) {
     if (mode === 'recipe') {
       addIngredient({ foodId: food.id, name: food.name, grams: grams!, per100g: food.per100g });
       router.dismissTo('/recipes/edit');
+      return;
+    }
+    if (mode === 'photo') {
+      useAnalysis.getState().pick(food, grams!);
+      router.dismissTo('/analysis');
       return;
     }
     if (meal === undefined) return;

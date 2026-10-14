@@ -1,7 +1,8 @@
 import { router, useLocalSearchParams } from 'expo-router';
 import { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Switch, View } from 'react-native';
+import { Alert, Switch, View } from 'react-native';
+import * as ImagePicker from 'expo-image-picker';
 import { useQueryClient } from '@tanstack/react-query';
 
 import { upsertFood } from '@/data/repositories/foods';
@@ -13,19 +14,69 @@ import {
   type CustomFoodErrors,
 } from '@/features/foods/customFood';
 import { openFood } from '@/features/foods/navigation';
+import { readNutritionLabel, toAiError } from '@/features/photo/api';
+import { prepareImage } from '@/features/photo/prepareImage';
+import { config } from '@/lib/config';
 import { newId } from '@/lib/id';
 import { useTheme } from '@/theme/ThemeProvider';
 import { Button, NumberField, SheetScreen, Text, TextField } from '@/ui';
 
 /** Create a product, e.g. after scanning an unknown barcode. Values are entered per 100 g/ml as on EU labels. */
 export default function NewFoodScreen() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { color } = useTheme();
   const qc = useQueryClient();
   const params = useLocalSearchParams<{ barcode?: string; date?: string; meal?: string }>();
   const [form, setForm] = useState<CustomFoodForm>(() => emptyCustomFood(params.barcode ?? ''));
   const [errors, setErrors] = useState<CustomFoodErrors>({});
   const id = useMemo(() => newId(), []);
+
+  const [reading, setReading] = useState(false);
+
+  /** Photograph the nutrition table and let the API read it; the user reviews the filled-in values. */
+  const scanLabel = async () => {
+    const perm = await ImagePicker.requestCameraPermissionsAsync();
+    if (!perm.granted) return;
+    const res = await ImagePicker.launchCameraAsync({ quality: 0.8 });
+    const asset = res.canceled ? undefined : res.assets[0];
+    if (!asset) return;
+    setReading(true);
+    try {
+      const img = await prepareImage(asset.uri, asset.width, asset.height);
+      const r = await readNutritionLabel({
+        image: img.base64,
+        mediaType: img.mediaType,
+        locale: i18n.language === 'en' ? 'en' : 'de',
+      });
+      if (r.status === 'unreadable') {
+        Alert.alert(t('customFood.labelUnreadable'));
+        return;
+      }
+      const str = (v: number | null) => (v === null ? '' : String(v).replace('.', ','));
+      setForm((f) => ({
+        ...f,
+        name: f.name || r.productName || '',
+        brand: f.brand || r.brand || '',
+        isLiquid: r.isLiquid,
+        kcal: str(r.kcal),
+        protein: str(r.protein),
+        carbs: str(r.carbs),
+        fat: str(r.fat),
+        sugar: str(r.sugar),
+        saturatedFat: str(r.saturatedFat),
+        fiber: str(r.fiber),
+        salt: str(r.salt),
+        servingGrams: str(r.servingGrams) || f.servingGrams,
+        packageGrams: str(r.packageGrams) || f.packageGrams,
+      }));
+      setErrors({});
+      Alert.alert(t('customFood.labelRead'));
+    } catch (e) {
+      Alert.alert(t(`photo.errors.${toAiError(e).kind}.title`));
+    } finally {
+      setReading(false);
+    }
+  };
 
   const save = useDbMutation(
     (db, food: Parameters<typeof upsertFood>[1]) => upsertFood(db, food),
@@ -94,6 +145,14 @@ export default function NewFoodScreen() {
         />
       </View>
 
+      {config.apiUrl ? (
+        <Button
+          variant="secondary"
+          label={t('customFood.scanLabel')}
+          loading={reading}
+          onPress={() => void scanLabel()}
+        />
+      ) : null}
       <Text variant="heading">{t('customFood.per', { unit })}</Text>
       {errors.plausibility ? (
         <Text className="text-sm text-danger" accessibilityLiveRegion="polite">

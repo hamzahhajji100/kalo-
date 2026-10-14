@@ -3,7 +3,7 @@ import { router } from 'expo-router';
 
 import { queryClient } from '@/lib/queryClient';
 
-export type FoodMode = 'log' | 'recipe';
+export type FoodMode = 'log' | 'recipe' | 'photo';
 
 export const foodKey = (id: string) => ['food', id] as const;
 

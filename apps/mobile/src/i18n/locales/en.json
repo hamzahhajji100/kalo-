@@ -144,7 +144,8 @@
     "sourceUsda": "Data: USDA FoodData Central (public domain).",
     "sourceAi": "AI estimate – please check.",
     "sourceRecipe": "Your recipe.",
-    "sourceCustom": "Created by you."
+    "sourceCustom": "Created by you.",
+    "useForPhoto": "Use"
   },
   "micros": {
     "calcium": "Calcium",
@@ -268,6 +269,73 @@
       "saturatedFat": "Saturates can't exceed fat.",
       "barcode": "A barcode has 8 to 14 digits.",
       "plausibility": "The calories don't match the macronutrients. Please check the values per 100 g."
+    },
+    "scanLabel": "Photograph nutrition label",
+    "labelRead": "Values filled in – please compare with the package.",
+    "labelUnreadable": "The nutrition table wasn't readable. Try with more light, straight on."
+  },
+  "photo": {
+    "hint": "Photograph your plate from slightly above",
+    "shutter": "Take photo",
+    "fromLibrary": "Choose from library",
+    "analyzing": "Analysing your food …",
+    "analyzingHint": "The AI recognises the components and estimates the amounts.",
+    "permissionTitle": "Camera access needed",
+    "permissionBody": "Photo recognition needs the camera. You can also pick an image from your library.",
+    "notConfiguredTitle": "Photo recognition not set up",
+    "notConfiguredBody": "AI analysis needs the Kalo server (EXPO_PUBLIC_API_URL). Meanwhile you can log via search.",
+    "newPhoto": "New photo",
+    "searchInstead": "Search instead",
+    "errors": {
+      "no_food": {
+        "title": "No food recognised",
+        "body": "The AI couldn't find food in this photo. Try with the whole plate in frame."
+      },
+      "offline": {
+        "title": "No connection",
+        "body": "Photo analysis needs the internet. You can log via search instead – that works offline too."
+      },
+      "timeout": {
+        "title": "That took too long",
+        "body": "The analysis didn't respond in time. Please try again."
+      },
+      "rate_limited": {
+        "title": "Daily limit reached",
+        "body": "You've analysed many photos today. Try again in about {{hours}} h – search works meanwhile."
+      },
+      "refused": {
+        "title": "Can't analyse this",
+        "body": "This image can't be analysed. Please photograph only your food."
+      },
+      "not_configured": {
+        "title": "Photo recognition not set up",
+        "body": "The AI analysis server isn't configured."
+      },
+      "server": {
+        "title": "Analysis failed",
+        "body": "Something went wrong while analysing. Please try again."
+      }
     }
+  },
+  "analysis": {
+    "title": "Recognised food",
+    "empty": "No components",
+    "addItem": "Add component",
+    "save": "Save {{count}} entries · {{kcal}} kcal",
+    "totalA11y": "{{kcal}} kilocalories in total",
+    "basis": {
+      "db": "Nutrition from database",
+      "ai": "AI estimate",
+      "user": "Chosen by you"
+    },
+    "confidence": "{{pct}} % sure",
+    "replace": "Replace {{name}}",
+    "remove": "Remove {{name}}",
+    "question": "Is this {{options}}?",
+    "or": " or ",
+    "yesIts": "Yes, {{name}}",
+    "rejectedMatch": "Note: “{{name}}” from the database doesn't match the estimate (e.g. raw vs cooked) – AI values used.",
+    "amountSlider": "Amount of {{name}} in grams",
+    "disclaimer": "Amounts are estimates. A quick look at the grams makes your diary much more accurate."
   }
 }

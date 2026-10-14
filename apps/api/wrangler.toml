@@ -1,0 +1,21 @@
+name = "kalo-api"
+main = "src/worker.ts"
+compatibility_date = "2026-09-01"
+compatibility_flags = ["nodejs_compat"]
+
+# Secrets (wrangler secret put …): ANTHROPIC_API_KEY, TOKEN_SECRET, USDA_API_KEY
+[vars]
+ANTHROPIC_MODEL = "claude-opus-5-5"
+ANTHROPIC_EFFORT = "low"
+PHOTO_DAILY_LIMIT = "30"
+LABEL_DAILY_LIMIT = "30"
+
+# Create with: wrangler kv namespace create RATE_LIMIT_KV  → paste the id here.
+# [[kv_namespaces]]
+# binding = "RATE_LIMIT_KV"
+# id = "<your-namespace-id>"
+
+[observability]
+enabled = true
+# Request bodies are never logged by the app; keep Workers Logs free of payloads.
+head_sampling_rate = 1

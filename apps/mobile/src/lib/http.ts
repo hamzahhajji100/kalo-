@@ -11,6 +11,8 @@ export class HttpError extends Error {
     readonly status?: number,
     /** Seconds to wait, from a Retry-After header. */
     readonly retryAfter?: number,
+    /** Parsed JSON error body, if the server sent one. */
+    readonly body?: unknown,
   ) {
     super(message);
     this.name = 'HttpError';
@@ -63,12 +65,15 @@ async function once<T>(url: string, opts: RequestOptions<T>): Promise<T> {
     opts.signal?.removeEventListener('abort', onAbort);
   }
 
-  if (res.status === 429) {
+  if (!res.ok) {
+    const body: unknown = await res.json().catch(() => undefined);
     const retryAfter = Number(res.headers.get('Retry-After')) || undefined;
-    throw new HttpError('rate_limited', 'Too many requests', 429, retryAfter);
+    if (res.status === 429)
+      throw new HttpError('rate_limited', 'Too many requests', 429, retryAfter, body);
+    if (res.status >= 500)
+      throw new HttpError('server', `Server error ${res.status}`, res.status, retryAfter, body);
+    throw new HttpError('client', `Request failed ${res.status}`, res.status, retryAfter, body);
   }
-  if (res.status >= 500) throw new HttpError('server', `Server error ${res.status}`, res.status);
-  if (!res.ok) throw new HttpError('client', `Request failed ${res.status}`, res.status);
 
   let json: unknown;
   try {

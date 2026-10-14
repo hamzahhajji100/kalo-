@@ -144,7 +144,8 @@
     "sourceUsda": "Daten: USDA FoodData Central (gemeinfrei).",
     "sourceAi": "KI-Schätzung – bitte prüfen.",
     "sourceRecipe": "Dein Rezept.",
-    "sourceCustom": "Von dir angelegt."
+    "sourceCustom": "Von dir angelegt.",
+    "useForPhoto": "Übernehmen"
   },
   "micros": {
     "calcium": "Calcium",
@@ -268,6 +269,73 @@
       "saturatedFat": "Gesättigte Fettsäuren können nicht mehr sein als Fett.",
       "barcode": "Ein Barcode hat 8 bis 14 Ziffern.",
       "plausibility": "Die Kalorien passen nicht zu den Makronährstoffen. Bitte prüfe die Angaben pro 100 g."
+    },
+    "scanLabel": "Nährwerttabelle fotografieren",
+    "labelRead": "Werte übernommen – bitte kurz mit der Verpackung vergleichen.",
+    "labelUnreadable": "Die Nährwerttabelle war nicht lesbar. Versuche es mit mehr Licht und gerade von vorne."
+  },
+  "photo": {
+    "hint": "Fotografiere deinen Teller von schräg oben",
+    "shutter": "Foto aufnehmen",
+    "fromLibrary": "Aus Galerie wählen",
+    "analyzing": "Analysiere dein Essen …",
+    "analyzingHint": "Die KI erkennt die Bestandteile und schätzt die Mengen.",
+    "permissionTitle": "Kamera-Zugriff benötigt",
+    "permissionBody": "Für die Foto-Erkennung braucht Kalo die Kamera. Du kannst auch ein Bild aus der Galerie wählen.",
+    "notConfiguredTitle": "Foto-Erkennung nicht eingerichtet",
+    "notConfiguredBody": "Für die KI-Analyse wird der Kalo-Server benötigt (EXPO_PUBLIC_API_URL). Bis dahin kannst du über die Suche eintragen.",
+    "newPhoto": "Neues Foto",
+    "searchInstead": "Stattdessen suchen",
+    "errors": {
+      "no_food": {
+        "title": "Kein Essen erkannt",
+        "body": "Auf dem Foto konnte die KI kein Essen finden. Probier es mit dem ganzen Teller im Bild."
+      },
+      "offline": {
+        "title": "Keine Verbindung",
+        "body": "Die Foto-Analyse braucht Internet. Du kannst stattdessen über die Suche eintragen – das klappt auch offline."
+      },
+      "timeout": {
+        "title": "Das hat zu lange gedauert",
+        "body": "Die Analyse hat nicht rechtzeitig geantwortet. Versuch es gleich noch einmal."
+      },
+      "rate_limited": {
+        "title": "Tageslimit erreicht",
+        "body": "Du hast heute schon viele Fotos analysiert. In etwa {{hours}} Std. geht es wieder – bis dahin hilft die Suche."
+      },
+      "refused": {
+        "title": "Analyse nicht möglich",
+        "body": "Dieses Bild kann nicht analysiert werden. Bitte fotografiere nur dein Essen."
+      },
+      "not_configured": {
+        "title": "Foto-Erkennung nicht eingerichtet",
+        "body": "Der Server für die KI-Analyse ist nicht konfiguriert."
+      },
+      "server": {
+        "title": "Analyse fehlgeschlagen",
+        "body": "Beim Analysieren ist etwas schiefgelaufen. Versuch es noch einmal."
+      }
     }
+  },
+  "analysis": {
+    "title": "Erkanntes Essen",
+    "empty": "Keine Bestandteile",
+    "addItem": "Bestandteil hinzufügen",
+    "save": "{{count}} Einträge speichern · {{kcal}} kcal",
+    "totalA11y": "Insgesamt {{kcal}} Kilokalorien",
+    "basis": {
+      "db": "Nährwerte aus Datenbank",
+      "ai": "KI-Schätzung",
+      "user": "Von dir gewählt"
+    },
+    "confidence": "{{pct}} % sicher",
+    "replace": "{{name}} ersetzen",
+    "remove": "{{name}} entfernen",
+    "question": "Ist das {{options}}?",
+    "or": " oder ",
+    "yesIts": "Ja, {{name}}",
+    "rejectedMatch": "Hinweis: „{{name}}“ aus der Datenbank passt nicht zur Schätzung (z. B. roh statt gekocht) – KI-Werte verwendet.",
+    "amountSlider": "Menge von {{name}} in Gramm",
+    "disclaimer": "Mengen sind Schätzungen. Ein kurzer Blick auf die Gramm-Angaben macht dein Tagebuch deutlich genauer."
   }
 }

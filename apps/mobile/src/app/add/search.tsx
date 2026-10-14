@@ -26,7 +26,7 @@ export default function SearchScreen() {
   const { color } = useTheme();
   const insets = useSafeAreaInsets();
   const params = useLocalSearchParams<{ mode?: FoodMode }>();
-  const mode: FoodMode = params.mode === 'recipe' ? 'recipe' : 'log';
+  const mode: FoodMode = params.mode === 'recipe' || params.mode === 'photo' ? params.mode : 'log';
   const target = useAddTarget();
   const [query, setQuery] = useState('');
   const [tab, setTab] = useState<Tab>('recent');

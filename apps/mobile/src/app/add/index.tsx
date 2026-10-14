@@ -15,9 +15,8 @@ type Option = {
   pathname?: Href & string;
 };
 
-// Options without a pathname are built in later milestones and shown as "coming soon".
 const OPTIONS: Option[] = [
-  { key: 'photo', icon: 'camera' },
+  { key: 'photo', icon: 'camera', pathname: '/add/photo' },
   { key: 'barcode', icon: 'barcode-outline', pathname: '/add/barcode' },
   { key: 'search', icon: 'search', pathname: '/add/search' },
   { key: 'quick', icon: 'flash-outline', pathname: '/add/quick' },
