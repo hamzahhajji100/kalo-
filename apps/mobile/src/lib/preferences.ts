@@ -10,6 +10,8 @@ export interface Preferences {
   /** Relaxed mode hides calorie numbers and shows food-quality focused feedback instead. */
   relaxedMode: boolean;
   hasOnboarded: boolean;
+  /** One-time consent to send meal/label photos to the Kalo server for AI analysis. */
+  photoConsent: boolean;
   set: (patch: Partial<Omit<Preferences, 'set'>>) => void;
 }
 
@@ -21,6 +23,7 @@ export const usePreferences = create<Preferences>()(
       units: 'metric',
       relaxedMode: false,
       hasOnboarded: false,
+      photoConsent: false,
       set: (patch) => set(patch),
     }),
     {

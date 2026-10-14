@@ -12,6 +12,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useAddTarget } from '@/features/diary/useAddTarget';
 import { useAnalysis } from '@/features/photo/analysisStore';
 import { toAiError, type AiErrorKind } from '@/features/photo/api';
+import { ensurePhotoConsent } from '@/features/photo/consent';
 import { runPhotoAnalysis } from '@/features/photo/runAnalysis';
 import { config } from '@/lib/config';
 import { Button, EmptyState, Text } from '@/ui';
@@ -37,6 +38,7 @@ export default function PhotoScreen() {
   };
 
   const analyse = async (photo: Photo) => {
+    if (!(await ensurePhotoConsent())) return;
     setState({ kind: 'analyzing', photo });
     try {
       const r = await runPhotoAnalysis(photo, i18n.language === 'en' ? 'en' : 'de');

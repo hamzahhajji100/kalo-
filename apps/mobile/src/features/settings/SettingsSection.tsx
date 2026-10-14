@@ -50,6 +50,7 @@ function deleteEverything() {
   usePreferences.getState().set({
     hasOnboarded: false,
     relaxedMode: false,
+    photoConsent: false,
     theme: 'system',
     language: 'system',
     units: 'metric',

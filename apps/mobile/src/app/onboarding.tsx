@@ -169,6 +169,7 @@ export default function OnboardingScreen() {
               <View className="flex-row gap-3">
                 <View className="flex-1">
                   <NumberField
+                    testID="onb-age"
                     label={t('onboarding.age')}
                     unit={t('onboarding.years')}
                     value={draft.age}
@@ -177,6 +178,7 @@ export default function OnboardingScreen() {
                 </View>
                 <View className="flex-1">
                   <NumberField
+                    testID="onb-height"
                     label={t('onboarding.height')}
                     unit="cm"
                     value={draft.heightCm}
@@ -185,6 +187,7 @@ export default function OnboardingScreen() {
                 </View>
               </View>
               <NumberField
+                testID="onb-weight"
                 label={t('onboarding.weight')}
                 unit="kg"
                 value={draft.weightKg}
@@ -244,6 +247,7 @@ export default function OnboardingScreen() {
                 {t('onboarding.targetTitle')}
               </Text>
               <NumberField
+                testID="onb-target"
                 label={t('onboarding.targetWeight')}
                 unit="kg"
                 placeholder={t('onboarding.optional')}

@@ -1,0 +1,35 @@
+# Flow 3: photo analysis from the gallery.
+# Requirements: EXPO_PUBLIC_API_URL pointing to a running Kalo API with ANTHROPIC_API_KEY,
+# and a meal photo at .maestro/assets/meal.jpg (not committed – use any photo of a plate).
+appId: com.hamzahhajji.kalo
+---
+- runFlow: onboarding.yaml
+- addMedia:
+    - 'assets/meal.jpg'
+- tapOn:
+    id: 'add-button'
+- tapOn: 'Foto'
+- runFlow:
+    when:
+      visible: 'Kamera erlauben'
+    commands:
+      - tapOn: 'Kamera erlauben'
+      - tapOn:
+          text: '(Allow|Erlauben|Beim Verwenden der App)'
+          optional: true
+- tapOn: 'Aus Galerie wählen'
+# System photo picker: select the most recent image (selector differs per OS version).
+- tapOn:
+    point: '20%,25%'
+- tapOn:
+    text: '(Hinzufügen|Add|Fertig|Done)'
+    optional: true
+- tapOn:
+    text: 'Einverstanden'
+    optional: true
+- extendedWaitUntil:
+    visible: 'Erkanntes Essen|.*Einträge speichern.*'
+    timeout: 15000
+- tapOn:
+    text: '.*Einträge speichern.*'
+- assertVisible: 'Heute'

@@ -15,6 +15,7 @@ import {
 } from '@/features/foods/customFood';
 import { openFood } from '@/features/foods/navigation';
 import { readNutritionLabel, toAiError } from '@/features/photo/api';
+import { ensurePhotoConsent } from '@/features/photo/consent';
 import { prepareImage } from '@/features/photo/prepareImage';
 import { config } from '@/lib/config';
 import { newId } from '@/lib/id';
@@ -35,6 +36,7 @@ export default function NewFoodScreen() {
 
   /** Photograph the nutrition table and let the API read it; the user reviews the filled-in values. */
   const scanLabel = async () => {
+    if (!(await ensurePhotoConsent())) return;
     const perm = await ImagePicker.requestCameraPermissionsAsync();
     if (!perm.granted) return;
     const res = await ImagePicker.launchCameraAsync({ quality: 0.8 });

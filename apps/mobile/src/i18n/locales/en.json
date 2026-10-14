@@ -646,5 +646,10 @@
     "catalogInfo": "{{count}} foods · built {{date}}",
     "catalogLoading": "Preparing catalogue …",
     "ai": "Photo recognition uses an AI model by Anthropic (Claude). Results are estimates and are matched – where possible – against verified nutrition values from the databases above."
+  },
+  "consent": {
+    "title": "Send photo for analysis?",
+    "body": "For recognition the photo is downscaled and sent to the Kalo server and Anthropic's AI, analysed and not stored. Where possible, photograph only your food. You can always log via search or barcode instead.",
+    "agree": "Agree"
   }
 }

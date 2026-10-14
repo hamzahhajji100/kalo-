@@ -646,5 +646,10 @@
     "catalogInfo": "{{count}} Lebensmittel · Stand {{date}}",
     "catalogLoading": "Katalog wird vorbereitet …",
     "ai": "Die Foto-Erkennung nutzt ein KI-Modell von Anthropic (Claude). Ergebnisse sind Schätzungen und werden – wo möglich – mit geprüften Nährwerten aus den obigen Datenbanken abgeglichen."
+  },
+  "consent": {
+    "title": "Foto zur Analyse senden?",
+    "body": "Für die Erkennung wird das Foto verkleinert an den Kalo-Server und die KI von Anthropic geschickt, ausgewertet und nicht gespeichert. Fotografiere nach Möglichkeit nur dein Essen. Du kannst stattdessen jederzeit über Suche oder Barcode eintragen.",
+    "agree": "Einverstanden"
   }
 }

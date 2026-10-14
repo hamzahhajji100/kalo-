@@ -16,6 +16,7 @@ function AddButton() {
       <Pressable
         accessibilityRole="button"
         accessibilityLabel={t('tabs.add')}
+        testID="add-button"
         onPress={() => {
           void Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
           router.push('/add');

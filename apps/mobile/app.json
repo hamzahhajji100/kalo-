@@ -8,7 +8,10 @@
     "userInterfaceStyle": "automatic",
     "ios": {
       "supportsTablet": false,
-      "bundleIdentifier": "com.hamzahhajji.kalo"
+      "bundleIdentifier": "com.hamzahhajji.kalo",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -18,7 +21,9 @@
         "monochromeImage": "./assets/android-icon-monochrome.png"
       },
       "predictiveBackGestureEnabled": false,
-      "package": "com.hamzahhajji.kalo"
+      "package": "com.hamzahhajji.kalo",
+      "permissions": ["android.permission.CAMERA"],
+      "blockedPermissions": ["android.permission.RECORD_AUDIO"]
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -53,6 +58,7 @@
     "scheme": "kalo",
     "experiments": {
       "typedRoutes": true
-    }
+    },
+    "description": "KI-Kalorien- und Makro-Tracker: Foto, Barcode, Suche und adaptiver Ziel-Coach."
   }
 }

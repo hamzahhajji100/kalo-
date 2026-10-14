@@ -1,0 +1,6 @@
+# Run all flows:  maestro test .maestro/
+# Requires a development build or Expo Go with the app installed (appId below) and German device language.
+flows:
+  - onboarding.yaml
+  - barcode-entry.yaml
+  - photo-entry.yaml

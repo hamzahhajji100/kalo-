@@ -198,6 +198,7 @@ export default function BarcodeScreen() {
         ) : manual !== null ? (
           <>
             <NumberField
+              testID="barcode-input"
               label={t('barcode.manualLabel')}
               value={manual}
               onChangeText={setManual}

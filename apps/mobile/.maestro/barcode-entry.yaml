@@ -1,0 +1,28 @@
+# Flow 2: log a product by barcode. Uses manual entry so it also runs on simulators without a camera.
+# Needs internet (Open Food Facts) unless the product is in the offline catalogue.
+appId: com.hamzahhajji.kalo
+---
+- runFlow: onboarding.yaml
+- tapOn:
+    id: 'add-button'
+- tapOn: 'Barcode'
+# Camera permission dialog (first run)
+- runFlow:
+    when:
+      visible: 'Kamera erlauben'
+    commands:
+      - tapOn: 'Kamera erlauben'
+      - tapOn:
+          text: '(Allow|Erlauben|Beim Verwenden der App)'
+          optional: true
+- tapOn: 'Barcode eintippen'
+- tapOn:
+    id: 'barcode-input'
+- inputText: '3017620422003'
+- tapOn: 'Suchen'
+- extendedWaitUntil:
+    visible: 'Nutella'
+    timeout: 10000
+- tapOn:
+    text: 'Hinzufügen.*'
+- assertVisible: 'Nutella'

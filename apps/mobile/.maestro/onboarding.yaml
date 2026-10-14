@@ -1,0 +1,35 @@
+# Flow 1: fresh install → onboarding → personal plan → home screen.
+appId: com.hamzahhajji.kalo
+---
+- launchApp:
+    clearState: true
+- assertVisible: 'Dein persönlicher Ernährungs-Coach'
+- tapOn: 'Los geht’s'
+- tapOn: 'Abnehmen'
+- tapOn: 'Weiter'
+- tapOn: 'Weiblich'
+- tapOn:
+    id: 'onb-age'
+- inputText: '28'
+- tapOn:
+    id: 'onb-height'
+- inputText: '165'
+- tapOn:
+    id: 'onb-weight'
+- inputText: '68'
+- hideKeyboard
+- tapOn: 'Weiter'
+- tapOn: 'Leicht aktiv'
+- tapOn: 'Weiter'
+- tapOn:
+    id: 'onb-target'
+- inputText: '60'
+- hideKeyboard
+- tapOn: 'Ausgewogen'
+- tapOn: 'Weiter'
+- tapOn: 'Weiter'
+# Anna's reference profile from packages/core/test/profiles.test.ts
+- assertVisible: '1.570'
+- tapOn: 'Plan starten'
+- assertVisible: 'Heute'
+- assertVisible: 'kcal übrig'
