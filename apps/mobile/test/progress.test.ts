@@ -199,3 +199,31 @@ describe('CSV', () => {
     expect(weightsCsv([{ date: TODAY, kg: 68.4 }], 'en')).toContain('2026-10-14,68.4');
   });
 });
+
+describe('care insight', () => {
+  it('responds to repeated very low intake without numbers', () => {
+    const days = [day(-3, 600, 30), day(-2, 700, 40), day(-1, 750, 35), day(0, 300, 10)];
+    const s = computeStats({
+      from: addDays(TODAY, -6),
+      to: TODAY,
+      days,
+      targetFor: () => target,
+      micros: new Map(),
+      water: new Map(),
+    });
+    const insights = generateInsights({ days, stats: s, targetFor: () => target, today: TODAY });
+    expect(insights[0]).toEqual({
+      key: 'very_low_intake',
+      tone: 'care',
+      numeric: false,
+      params: {},
+    });
+    const two = generateInsights({
+      days: days.slice(1),
+      stats: s,
+      targetFor: () => target,
+      today: TODAY,
+    });
+    expect(two.some((i) => i.key === 'very_low_intake')).toBe(false);
+  });
+});

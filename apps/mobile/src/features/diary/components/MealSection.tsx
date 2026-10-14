@@ -2,6 +2,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { router } from 'expo-router';
 import { useTranslation } from 'react-i18next';
 import { Alert, Pressable, View } from 'react-native';
+import Animated, { FadeIn, FadeOut, LinearTransition } from 'react-native-reanimated';
 
 import { copyEntries, type DiaryEntry } from '@/data/repositories/diary';
 import { saveTemplateFromMeal } from '@/data/repositories/templates';
@@ -13,8 +14,9 @@ import { useTheme } from '@/theme/ThemeProvider';
 import { Card, Text } from '@/ui';
 import { keys, useDbMutation } from '../queries';
 
+/** A user-given name wins over the translated default name. */
 export function mealName(meal: MealType, t: (k: string) => string): string {
-  return meal.key ? t(`meals.${meal.key}`) : (meal.name ?? '');
+  return meal.name ?? (meal.key ? t(`meals.${meal.key}`) : '');
 }
 
 export function MealSection({
@@ -91,28 +93,34 @@ export function MealSection({
         </Text>
       ) : (
         entries.map((e) => (
-          <Pressable
+          <Animated.View
             key={e.id}
-            accessibilityRole="button"
-            accessibilityLabel={`${e.name}, ${e.amountLabel ?? (e.grams ? `${formatInt(e.grams)} g` : '')}, ${formatInt(e.kcal)} kcal`}
-            accessibilityHint={t('diary.editHint')}
-            onPress={() => router.push({ pathname: '/entry/[id]', params: { id: e.id } })}
-            className="flex-row items-center gap-3 border-t border-border py-2.5 active:opacity-70"
+            entering={FadeIn.duration(200)}
+            exiting={FadeOut.duration(150)}
+            layout={LinearTransition}
           >
-            <View className="flex-1">
-              <Text numberOfLines={1}>{e.name}</Text>
-              <Text variant="caption" numberOfLines={1}>
-                {[e.brand, e.amountLabel ?? (e.grams ? `${formatInt(e.grams)} g` : null)]
-                  .filter(Boolean)
-                  .join(' · ') || t(`diary.source.${e.source}`)}
-              </Text>
-            </View>
-            {!relaxed && (
-              <Text className="font-semibold text-text" style={{ fontVariant: ['tabular-nums'] }}>
-                {formatInt(e.kcal)}
-              </Text>
-            )}
-          </Pressable>
+            <Pressable
+              accessibilityRole="button"
+              accessibilityLabel={`${e.name}, ${e.amountLabel ?? (e.grams ? `${formatInt(e.grams)} g` : '')}, ${formatInt(e.kcal)} kcal`}
+              accessibilityHint={t('diary.editHint')}
+              onPress={() => router.push({ pathname: '/entry/[id]', params: { id: e.id } })}
+              className="flex-row items-center gap-3 border-t border-border py-2.5 active:opacity-70"
+            >
+              <View className="flex-1">
+                <Text numberOfLines={1}>{e.name}</Text>
+                <Text variant="caption" numberOfLines={1}>
+                  {[e.brand, e.amountLabel ?? (e.grams ? `${formatInt(e.grams)} g` : null)]
+                    .filter(Boolean)
+                    .join(' · ') || t(`diary.source.${e.source}`)}
+                </Text>
+              </View>
+              {!relaxed && (
+                <Text className="font-semibold text-text" style={{ fontVariant: ['tabular-nums'] }}>
+                  {formatInt(e.kcal)}
+                </Text>
+              )}
+            </Pressable>
+          </Animated.View>
         ))
       )}
     </Card>

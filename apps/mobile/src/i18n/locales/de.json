@@ -62,7 +62,7 @@
     "addGlass": "Ein Glas Wasser mit {{ml}} Millilitern hinzufügen",
     "removeGlass": "Letztes Glas entfernen",
     "weight": "Gewicht",
-    "weightA11y": "Gewicht: {{kg}} Kilogramm. Tippen zum Eintragen",
+    "weightA11y": "Gewicht: {{weight}}. Tippen zum Eintragen",
     "logWeight": "Eintragen",
     "noWeight": "Noch kein Gewicht eingetragen"
   },
@@ -527,16 +527,16 @@
     "trend": "Trend",
     "weighIn": "Wiegung",
     "target": "Ziel",
-    "targetValue": "Ziel {{kg}} kg",
+    "targetValue": "Ziel {{value}}",
     "eaten": "Gegessen",
     "kcalTarget": "Kalorienziel",
     "ofTarget": "{{pct}} % des Ziels",
-    "weightSummary": "Gewichtsverlauf vom {{from}} bis {{to}}: Trend von {{start}} auf {{end}} Kilogramm.",
+    "weightSummary": "Gewichtsverlauf vom {{from}} bis {{to}}: Trend von {{start}} auf {{end}}.",
     "kcalSummary": "Kalorien der letzten {{days}} Tage, im Schnitt {{avg}} Kilokalorien an geloggten Tagen."
   },
   "progress": {
     "weight": "Gewicht (Trend)",
-    "change": "{{kg}} kg im Zeitraum",
+    "change": "{{value}} im Zeitraum",
     "range": "Zeitraum",
     "weightEmpty": "Wiege dich an zwei Tagen, dann erscheint hier dein Verlauf.",
     "ranges": {
@@ -594,5 +594,57 @@
     "streak": "{{days}} Tage in Folge eingetragen – stark!",
     "on_target": "An {{pct}} % der Tage warst du in deinem Zielbereich. Weiter so!",
     "protein_good": "Deine Proteinversorgung ist richtig gut."
+  },
+  "care": {
+    "title": "Wie geht es dir?",
+    "body": "An mehreren Tagen hast du zuletzt sehr wenig gegessen. Dein Körper braucht genug Energie – auch beim Abnehmen. Wenn dich Essen oder Gewicht gerade sehr beschäftigen, kann ein Gespräch helfen.",
+    "relaxed": "Entspannten Modus aktivieren",
+    "help": "Hilfe & Beratung zu Essstörungen (BZgA)"
+  },
+  "settings": {
+    "title": "Einstellungen",
+    "appearance": "Darstellung",
+    "theme": "Design",
+    "system": "System",
+    "light": "Hell",
+    "dark": "Dunkel",
+    "language": "Sprache",
+    "units": "Körpergewicht in",
+    "metric": "kg",
+    "imperial": "lb",
+    "relaxed": "Entspannter Modus",
+    "relaxedHint": "Blendet Kalorienzahlen und Zielwerte aus. Du trägst weiter ein, was du isst, und bekommst Hinweise zur Qualität deiner Ernährung.",
+    "mealTypes": "Mahlzeiten anpassen",
+    "mealTypesHint": "Ausgeblendete Mahlzeiten behalten ihre bisherigen Einträge.",
+    "customMeal": "Eigene Mahlzeit",
+    "showMeal": "{{name}} anzeigen",
+    "newMeal": "Neue Mahlzeit",
+    "newMealPlaceholder": "z. B. Vor dem Training",
+    "addMeal": "Mahlzeit hinzufügen",
+    "licenses": "Datenquellen & Lizenzen",
+    "privacy": "Datenschutz",
+    "privacyBody": "Deine Gesundheitsdaten bleiben auf diesem Gerät. Für die Foto-Erkennung wird nur das jeweilige Bild verkleinert an den Kalo-Server geschickt, ausgewertet und nicht gespeichert. Exportieren kannst du deine Daten im Tab „Fortschritt“.",
+    "deleteAll": "Alle Daten löschen",
+    "deleteTitle": "Alle Daten löschen?",
+    "deleteBody": "Tagebuch, Profil, Ziele, Gewicht, eigene Lebensmittel, Rezepte und Fortschrittsfotos werden unwiderruflich von diesem Gerät gelöscht.",
+    "deleteReallyTitle": "Wirklich alles löschen?",
+    "deleteConfirm": "Löschen",
+    "disclaimer": "Kalo ist kein Medizinprodukt und ersetzt keine ärztliche oder ernährungstherapeutische Beratung."
+  },
+  "licenses": {
+    "off": {
+      "title": "Open Food Facts",
+      "body": "Produktdaten von Open Food Facts, einer offenen Datenbank, gepflegt von Freiwilligen. Datenbank lizenziert unter der Open Database License (ODbL) 1.0, Inhalte unter der Database Contents License, Bilder unter CC BY-SA. Angaben können Fehler enthalten – bitte mit der Verpackung vergleichen."
+    },
+    "usda": {
+      "title": "USDA FoodData Central",
+      "body": "Nährwerte von Grundnahrungsmitteln: U.S. Department of Agriculture, Agricultural Research Service. FoodData Central. Gemeinfrei (CC0 1.0)."
+    },
+    "website": "Website",
+    "license": "Lizenz",
+    "catalog": "Offline-Katalog auf diesem Gerät",
+    "catalogInfo": "{{count}} Lebensmittel · Stand {{date}}",
+    "catalogLoading": "Katalog wird vorbereitet …",
+    "ai": "Die Foto-Erkennung nutzt ein KI-Modell von Anthropic (Claude). Ergebnisse sind Schätzungen und werden – wo möglich – mit geprüften Nährwerten aus den obigen Datenbanken abgeglichen."
   }
 }

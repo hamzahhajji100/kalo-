@@ -15,23 +15,36 @@ const PAD = { top: 44, right: 8, bottom: 22, left: 34 };
 
 /** Daily weigh-ins as dots, smoothed trend as a line, optional target as a dashed reference. */
 export function WeightChart({
-  points,
+  points: kgPoints,
   targetKg,
+  toDisplay = (kg: number) => kg,
+  unit = 'kg',
 }: {
   points: TrendPoint[];
   targetKg: number | null;
+  /** Converts stored kg to the display unit (lb for imperial). */
+  toDisplay?: (kg: number) => number;
+  unit?: string;
 }) {
   const { t } = useTranslation();
   const { color } = useTheme();
   const [active, setActive] = useState<number | null>(null);
-  if (points.length === 0) return null;
+  if (kgPoints.length === 0) return null;
+  const points = kgPoints.map((p) => ({
+    ...p,
+    kg: toDisplay(p.kg),
+    trendKg: toDisplay(p.trendKg),
+  }));
+  const target = targetKg === null ? null : toDisplay(targetKg);
 
   const first = points[0]!.date;
   const last = points.at(-1)!.date;
   const span = Math.max(1, daysBetween(first, last));
   const values = points
     .flatMap((p) => [p.kg, p.trendKg])
-    .concat(targetKg !== null && Math.abs(targetKg - points.at(-1)!.trendKg) < 8 ? [targetKg] : []);
+    .concat(
+      target !== null && Math.abs(target - points.at(-1)!.trendKg) < toDisplay(8) ? [target] : [],
+    );
   const scale = niceScale(Math.min(...values), Math.max(...values), 4);
   const fmtDay = (iso: string) => formatDate(isoToDate(iso), { day: '2-digit', month: '2-digit' });
 
@@ -49,7 +62,7 @@ export function WeightChart({
         .reverse()
         .map((p) => ({
           label: fmtDay(p.date),
-          value: `${formatDecimal(p.kg)} kg (${t('charts.trend')} ${formatDecimal(p.trendKg)})`,
+          value: `${formatDecimal(p.kg)} ${unit} (${t('charts.trend')} ${formatDecimal(p.trendKg)})`,
         }))}
       legend={
         <View className="flex-row gap-4">
@@ -64,11 +77,11 @@ export function WeightChart({
       {(width) => {
         const x = linear([0, span], [PAD.left, width - PAD.right]);
         const y = linear([scale.min, scale.max], [H - PAD.bottom, PAD.top]);
-        const px = (p: TrendPoint) => x(daysBetween(first, p.date));
+        const px = (p: { date: string }) => x(daysBetween(first, p.date));
         const trend = points
           .map((p, i) => `${i ? 'L' : 'M'}${px(p).toFixed(1)},${y(p.trendKg).toFixed(1)}`)
           .join(' ');
-        const showTarget = targetKg !== null && targetKg >= scale.min && targetKg <= scale.max;
+        const showTarget = target !== null && target >= scale.min && target <= scale.max;
         const pick = (lx: number) => {
           let best = 0;
           points.forEach((p, i) => {
@@ -135,12 +148,12 @@ export function WeightChart({
                   />
                   <SvgText
                     x={width - PAD.right}
-                    y={y(targetKg!) - 5}
+                    y={y(target!) - 5}
                     fontSize={11}
                     fill={color('muted')}
                     textAnchor="end"
                   >
-                    {t('charts.targetValue', { kg: formatDecimal(targetKg!) })}
+                    {t('charts.targetValue', { value: `${formatDecimal(target!)} ${unit}` })}
                   </SvgText>
                 </>
               )}

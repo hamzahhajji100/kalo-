@@ -3,6 +3,7 @@ import { ScrollView, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { CoachCard } from '@/features/coach/CoachCard';
+import { CareCard } from '@/features/progress/CareCard';
 import { DayMeals } from '@/features/diary/components/DayMeals';
 import { DaySummaryCard } from '@/features/diary/components/DaySummaryCard';
 import { NoPlanCard } from '@/features/diary/components/NoPlanCard';
@@ -58,6 +59,7 @@ export default function TodayScreen() {
           <NoPlanCard kcal={data.totals.kcal} />
         )}
 
+        <CareCard />
         <CoachCard />
         <DayMeals date={today} entries={data?.entries} />
         {data && <WaterCard date={today} ml={data.waterMl} targetMl={data.goal?.waterMl ?? 0} />}

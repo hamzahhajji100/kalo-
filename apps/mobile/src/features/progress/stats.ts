@@ -102,11 +102,13 @@ export type InsightKey =
   | 'water_low'
   | 'streak'
   | 'on_target'
-  | 'protein_good';
+  | 'protein_good'
+  | 'very_low_intake';
 
 export interface Insight {
   key: InsightKey;
-  tone: 'positive' | 'tip';
+  /** 'care' = supportive health message, always shown first and also in relaxed mode. */
+  tone: 'positive' | 'tip' | 'care';
   /** Whether the message contains calorie/number details (hidden in relaxed mode). */
   numeric: boolean;
   params: Record<string, number>;
@@ -116,6 +118,8 @@ export interface Insight {
 export const FIBER_MIN_G = 25;
 export const SUGAR_MAX_G = 50;
 export const SALT_MAX_G = 6;
+/** Daily intake below this on several days triggers a supportive check. */
+export const VERY_LOW_KCAL = 800;
 
 /** Rule-based hints from recent days. Tips are phrased constructively, never as failures. */
 export function generateInsights(params: {
@@ -126,6 +130,13 @@ export function generateInsights(params: {
 }): Insight[] {
   const out: Insight[] = [];
   const { stats } = params;
+
+  // Several logged days with very little food can be a sign of under-eating; respond with care, not numbers.
+  const recent = params.days.filter(
+    (d) => isLogged(d) && d.date < params.today && d.date >= addDays(params.today, -7),
+  );
+  if (recent.filter((d) => d.kcal < VERY_LOW_KCAL).length >= 3)
+    out.push({ key: 'very_low_intake', tone: 'care', numeric: false, params: {} });
 
   // Protein under target on the last N logged days in a row.
   const byDate = new Map(params.days.map((d) => [d.date, d]));

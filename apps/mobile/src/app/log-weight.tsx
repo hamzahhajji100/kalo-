@@ -5,13 +5,16 @@ import { useTranslation } from 'react-i18next';
 import { upsertWeight } from '@/data/repositories/body';
 import { keys, useDbMutation, useLatestWeight } from '@/features/diary/queries';
 import { localIsoDate } from '@/lib/date';
+import { useWeightUnit } from '@/lib/units';
 import { Button, NumberField, parseDecimal, SheetScreen, Text } from '@/ui';
 
 export default function LogWeightScreen() {
   const { t } = useTranslation();
   const { data: latest } = useLatestWeight();
+  const units = useWeightUnit();
   const [value, setValue] = useState('');
-  const kg = parseDecimal(value);
+  const input = parseDecimal(value);
+  const kg = input === undefined ? undefined : units.toKg(input);
   const valid = kg !== undefined && kg >= 30 && kg <= 350;
   const today = localIsoDate();
 
@@ -34,9 +37,13 @@ export default function LogWeightScreen() {
     >
       <NumberField
         label={t('weight.today')}
-        unit="kg"
+        unit={units.unit}
         autoFocus
-        placeholder={latest ? String(latest.kg).replace('.', ',') : '70,0'}
+        placeholder={
+          latest
+            ? String(Math.round(units.toDisplay(latest.kg) * 10) / 10).replace('.', ',')
+            : '70,0'
+        }
         value={value}
         onChangeText={setValue}
         error={value && !valid ? t('weight.invalid') : undefined}

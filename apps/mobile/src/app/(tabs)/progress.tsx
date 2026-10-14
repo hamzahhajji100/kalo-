@@ -14,6 +14,7 @@ import type { Insight } from '@/features/progress/stats';
 import { isoToDate } from '@/lib/date';
 import { formatDate, formatDecimal, formatInt } from '@/lib/format';
 import { usePreferences } from '@/lib/preferences';
+import { useWeightUnit } from '@/lib/units';
 import { useTheme } from '@/theme/ThemeProvider';
 import { Button, Card, Chips, EmptyState, Skeleton, Text } from '@/ui';
 import { CalorieBars } from '@/ui/charts/CalorieBars';
@@ -39,6 +40,7 @@ export default function ProgressScreen() {
   const { color } = useTheme();
   const qc = useQueryClient();
   const relaxed = usePreferences((s) => s.relaxedMode);
+  const units = useWeightUnit();
   const [range, setRange] = useState<Range>(7);
   const [weightRange, setWeightRange] = useState<WeightRange>(90);
   const { data, isLoading } = useProgress(range, weightRange || null);
@@ -88,7 +90,13 @@ export default function ProgressScreen() {
             {insights.map((i) => (
               <Card key={i.key} className="flex-row items-center gap-3">
                 <Ionicons
-                  name={i.tone === 'positive' ? 'sparkles' : 'bulb-outline'}
+                  name={
+                    i.tone === 'positive'
+                      ? 'sparkles'
+                      : i.tone === 'care'
+                        ? 'heart-outline'
+                        : 'bulb-outline'
+                  }
                   size={22}
                   color={color(i.tone === 'positive' ? 'brand' : 'carbs')}
                 />
@@ -103,9 +111,7 @@ export default function ProgressScreen() {
             <View>
               <Text variant="label">{t('progress.weight')}</Text>
               {latest ? (
-                <Text className="text-3xl font-bold text-text">
-                  {formatDecimal(latest.trendKg)} kg
-                </Text>
+                <Text className="text-3xl font-bold text-text">{units.format(latest.trendKg)}</Text>
               ) : (
                 <Text variant="caption">{t('home.noWeight')}</Text>
               )}
@@ -113,7 +119,7 @@ export default function ProgressScreen() {
             {latest && rangeStart && rangeStart.date !== latest.date && (
               <Text variant="caption">
                 {t('progress.change', {
-                  kg: `${latest.trendKg - rangeStart.trendKg > 0 ? '+' : ''}${formatDecimal(latest.trendKg - rangeStart.trendKg)}`,
+                  value: `${latest.trendKg - rangeStart.trendKg > 0 ? '+' : ''}${units.format(latest.trendKg - rangeStart.trendKg)}`,
                 })}
               </Text>
             )}
@@ -134,6 +140,8 @@ export default function ProgressScreen() {
             <WeightChart
               points={trend}
               targetKg={relaxed ? null : (data.profile?.targetWeightKg ?? null)}
+              toDisplay={units.toDisplay}
+              unit={units.unit}
             />
           ) : (
             <Text variant="caption">{t('progress.weightEmpty')}</Text>

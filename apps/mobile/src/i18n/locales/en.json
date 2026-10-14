@@ -62,7 +62,7 @@
     "addGlass": "Add a {{ml}} millilitre glass of water",
     "removeGlass": "Remove last glass",
     "weight": "Weight",
-    "weightA11y": "Weight: {{kg}} kilograms. Tap to log",
+    "weightA11y": "Weight: {{weight}}. Tap to log",
     "logWeight": "Log",
     "noWeight": "No weight logged yet"
   },
@@ -527,16 +527,16 @@
     "trend": "Trend",
     "weighIn": "Weigh-in",
     "target": "Target",
-    "targetValue": "Target {{kg}} kg",
+    "targetValue": "Target {{value}}",
     "eaten": "Eaten",
     "kcalTarget": "Calorie target",
     "ofTarget": "{{pct}} % of target",
-    "weightSummary": "Weight from {{from}} to {{to}}: trend from {{start}} to {{end}} kilograms.",
+    "weightSummary": "Weight from {{from}} to {{to}}: trend from {{start}} to {{end}}.",
     "kcalSummary": "Calories over the last {{days}} days, averaging {{avg}} kilocalories on logged days."
   },
   "progress": {
     "weight": "Weight (trend)",
-    "change": "{{kg}} kg in period",
+    "change": "{{value}} in period",
     "range": "Period",
     "weightEmpty": "Weigh yourself on two days and your history appears here.",
     "ranges": {
@@ -594,5 +594,57 @@
     "streak": "{{days}} days logged in a row – great!",
     "on_target": "You were on target on {{pct}} % of days. Keep it up!",
     "protein_good": "Your protein intake is looking great."
+  },
+  "care": {
+    "title": "How are you doing?",
+    "body": "On several recent days you ate very little. Your body needs enough energy – even when losing weight. If food or weight is weighing on you right now, talking to someone can help.",
+    "relaxed": "Turn on relaxed mode",
+    "help": "Help & advice on eating disorders"
+  },
+  "settings": {
+    "title": "Settings",
+    "appearance": "Appearance",
+    "theme": "Theme",
+    "system": "System",
+    "light": "Light",
+    "dark": "Dark",
+    "language": "Language",
+    "units": "Body weight in",
+    "metric": "kg",
+    "imperial": "lb",
+    "relaxed": "Relaxed mode",
+    "relaxedHint": "Hides calorie numbers and targets. You keep logging what you eat and get tips about the quality of your diet.",
+    "mealTypes": "Customise meals",
+    "mealTypesHint": "Hidden meals keep their past entries.",
+    "customMeal": "Custom meal",
+    "showMeal": "Show {{name}}",
+    "newMeal": "New meal",
+    "newMealPlaceholder": "e.g. Pre-workout",
+    "addMeal": "Add meal",
+    "licenses": "Data sources & licences",
+    "privacy": "Privacy",
+    "privacyBody": "Your health data stays on this device. For photo recognition only the downscaled image is sent to the Kalo server, analysed and not stored. You can export your data in the Progress tab.",
+    "deleteAll": "Delete all data",
+    "deleteTitle": "Delete all data?",
+    "deleteBody": "Diary, profile, targets, weight, your own foods, recipes and progress photos will be permanently deleted from this device.",
+    "deleteReallyTitle": "Really delete everything?",
+    "deleteConfirm": "Delete",
+    "disclaimer": "Kalo is not a medical device and does not replace advice from a doctor or dietitian."
+  },
+  "licenses": {
+    "off": {
+      "title": "Open Food Facts",
+      "body": "Product data from Open Food Facts, an open database maintained by volunteers. Database licensed under the Open Database License (ODbL) 1.0, contents under the Database Contents License, images under CC BY-SA. Data may contain errors – please compare with the package."
+    },
+    "usda": {
+      "title": "USDA FoodData Central",
+      "body": "Nutrition data for basic foods: U.S. Department of Agriculture, Agricultural Research Service. FoodData Central. Public domain (CC0 1.0)."
+    },
+    "website": "Website",
+    "license": "Licence",
+    "catalog": "Offline catalogue on this device",
+    "catalogInfo": "{{count}} foods · built {{date}}",
+    "catalogLoading": "Preparing catalogue …",
+    "ai": "Photo recognition uses an AI model by Anthropic (Claude). Results are estimates and are matched – where possible – against verified nutrition values from the databases above."
   }
 }

@@ -2,6 +2,7 @@ import type { Food } from '@kalo/schemas';
 import { beforeEach, describe, expect, it } from 'vitest';
 
 import type { Db } from '@/data/db';
+import { addWater, upsertWeight } from '@/data/repositories/body';
 import { addEntry, listEntries } from '@/data/repositories/diary';
 import { isFavorite, listFavorites, toggleFavorite } from '@/data/repositories/favorites';
 import {
@@ -27,6 +28,8 @@ import {
   listTemplates,
   saveTemplateFromMeal,
 } from '@/data/repositories/templates';
+import { addGoal, listGoals, saveProfile } from '@/data/repositories/profile';
+import { wipeUserData } from '@/data/repositories/wipe';
 import { createTestDb } from './testDb';
 
 let db: Db;
@@ -206,5 +209,64 @@ describe('templates', () => {
     ]);
     deleteTemplate(db, id);
     expect(listTemplates(db)).toEqual([]);
+  });
+});
+
+describe('wipeUserData', () => {
+  it('removes everything and restores default meals', () => {
+    const [breakfast] = listMealTypes(db);
+    addEntry(db, {
+      date: '2026-10-14',
+      mealTypeId: breakfast!.id,
+      name: 'x',
+      nutrients: { kcal: 1, protein: 0, carbs: 0, fat: 0 },
+      source: 'quick',
+    });
+    upsertFood(db, skyr);
+    toggleFavorite(db, skyr);
+    saveRecipe(db, {
+      name: 'R',
+      servings: 1,
+      ingredients: [
+        { foodId: 'a', name: 'a', grams: 1, per100g: { kcal: 1, protein: 0, carbs: 0, fat: 0 } },
+      ],
+    });
+    saveTemplateFromMeal(db, { name: 'T', date: '2026-10-14', mealTypeId: breakfast!.id });
+    upsertWeight(db, '2026-10-14', 70);
+    addWater(db, '2026-10-14', 250);
+    saveProfile(db, {
+      sex: 'male',
+      birthDate: '1990-01-01',
+      heightCm: 180,
+      bodyFatPct: null,
+      activity: 'light',
+      trainingDaysPerWeek: 2,
+      experience: null,
+      goal: 'maintain',
+      targetWeightKg: null,
+      pace: 'medium',
+      diet: 'omnivore',
+      allergies: [],
+    });
+    addGoal(db, {
+      validFrom: '2026-10-14',
+      kcal: 2000,
+      protein: 120,
+      carbs: 250,
+      fat: 70,
+      waterMl: 2500,
+      steps: 8000,
+      tdee: 2000,
+      reason: 'onboarding',
+    });
+
+    wipeUserData(db);
+    expect(listEntries(db, '2026-10-14')).toEqual([]);
+    expect(listUserFoods(db)).toEqual([]);
+    expect(listFavorites(db)).toEqual([]);
+    expect(listRecipes(db)).toEqual([]);
+    expect(listTemplates(db)).toEqual([]);
+    expect(listGoals(db)).toEqual([]);
+    expect(listMealTypes(db).map((m) => m.key)).toEqual(['breakfast', 'lunch', 'dinner', 'snacks']);
   });
 });

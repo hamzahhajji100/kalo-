@@ -29,6 +29,8 @@ function RootStack() {
         <Stack.Screen name="onboarding" options={{ gestureEnabled: false }} />
         <Stack.Screen name="check-in" options={{ presentation: 'modal' }} />
         <Stack.Screen name="measurements" options={{ presentation: 'modal' }} />
+        <Stack.Screen name="meal-types" options={{ presentation: 'modal' }} />
+        <Stack.Screen name="licenses" options={{ presentation: 'modal' }} />
         <Stack.Screen
           name="add/index"
           options={{
