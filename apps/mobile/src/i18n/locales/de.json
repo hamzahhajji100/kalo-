@@ -86,7 +86,11 @@
       "recipe": "Rezept",
       "template": "Vorlage",
       "copy": "Kopiert"
-    }
+    },
+    "copyMealYesterday": "Von gestern übernehmen",
+    "mealMenu": "Optionen für {{meal}}",
+    "saveTemplate": "Als Vorlage speichern",
+    "templateSaved": "Vorlage gespeichert"
   },
   "quick": {
     "kcal": "Kalorien",
@@ -110,5 +114,119 @@
     "dbTitle": "Datenbank konnte nicht geöffnet werden",
     "loadTitle": "Daten konnten nicht geladen werden"
   },
-  "comingSoon": "Dieser Bereich wird im nächsten Meilenstein gebaut."
+  "comingSoon": "Dieser Bereich wird im nächsten Meilenstein gebaut.",
+  "food": {
+    "title": "Lebensmittel",
+    "notFound": "Lebensmittel nicht gefunden",
+    "loadError": "Konnte nicht geladen werden – bist du offline?",
+    "quantity": "Menge",
+    "unit": "Einheit",
+    "package": "Packung",
+    "serving": "Portion",
+    "onePortion": "1 Portion",
+    "addToDiary": "Hinzufügen · {{kcal}} kcal",
+    "addToRecipe": "Zum Rezept hinzufügen",
+    "favorite": "Als Favorit speichern",
+    "unfavorite": "Aus Favoriten entfernen",
+    "verified": "Geprüfte Daten",
+    "kcalPer": "Kilokalorien pro {{unit}}",
+    "per100": "Nährwerte pro {{unit}}",
+    "energy": "Energie",
+    "saturatedFat": "davon gesättigte Fettsäuren",
+    "sugar": "davon Zucker",
+    "fiber": "Ballaststoffe",
+    "salt": "Salz",
+    "allergens": "Allergene",
+    "ingredients": "Zutaten",
+    "nutriScoreA11y": "Nutri-Score {{grade}}",
+    "totalsA11y": "{{kcal}} Kilokalorien, {{protein}} Gramm Protein, {{carbs}} Gramm Kohlenhydrate, {{fat}} Gramm Fett",
+    "sourceOff": "Daten: Open Food Facts (ODbL). Angaben von Herstellern und Community – bitte mit der Verpackung vergleichen.",
+    "sourceUsda": "Daten: USDA FoodData Central (gemeinfrei).",
+    "sourceAi": "KI-Schätzung – bitte prüfen.",
+    "sourceRecipe": "Dein Rezept.",
+    "sourceCustom": "Von dir angelegt."
+  },
+  "micros": {
+    "calcium": "Calcium",
+    "iron": "Eisen",
+    "magnesium": "Magnesium",
+    "potassium": "Kalium",
+    "zinc": "Zink",
+    "vitaminC": "Vitamin C",
+    "vitaminD": "Vitamin D",
+    "vitaminB12": "Vitamin B12"
+  },
+  "allergens": {
+    "milk": "Milch",
+    "nuts": "Schalenfrüchte",
+    "peanuts": "Erdnüsse",
+    "gluten": "Gluten",
+    "soybeans": "Soja",
+    "eggs": "Eier",
+    "fish": "Fisch",
+    "crustaceans": "Krebstiere",
+    "celery": "Sellerie",
+    "mustard": "Senf",
+    "sesame-seeds": "Sesam",
+    "sulphur-dioxide-and-sulphites": "Sulfite",
+    "lupin": "Lupinen",
+    "molluscs": "Weichtiere"
+  },
+  "recipes": {
+    "title": "Rezepte",
+    "new": "Neues Rezept",
+    "editTitle": "Rezept bearbeiten",
+    "empty": "Noch keine Rezepte",
+    "emptyHint": "Lege Gerichte an, die du oft kochst – Kalo rechnet die Nährwerte pro Portion aus.",
+    "logHint": "Tippen zum Eintragen",
+    "edit": "{{name}} bearbeiten",
+    "summary": "{{kcal}} kcal · {{protein}} g Protein pro Portion · {{servings}} Portionen",
+    "noDraft": "Kein Rezept geöffnet",
+    "name": "Name",
+    "namePlaceholder": "z. B. Linsencurry",
+    "servings": "Portionen",
+    "cookedWeight": "Gewicht fertig (optional)",
+    "cookedWeightHint": "Wiegst du das fertige Gericht, wird die Portion genauer – Wasser verdampft beim Kochen.",
+    "ingredients": "Zutaten",
+    "addIngredient": "Zutat hinzufügen",
+    "removeIngredient": "{{name}} entfernen",
+    "perServing": "Pro Portion",
+    "nutritionLine": "{{kcal}} kcal · P {{protein}} g · KH {{carbs}} g · F {{fat}} g",
+    "totalLine": "Gesamt: {{kcal}} kcal · {{grams}} g",
+    "deleteTitle": "Rezept löschen?"
+  },
+  "search": {
+    "placeholder": "Lebensmittel, Marke oder Gericht",
+    "clear": "Suche löschen",
+    "add": "Hinzufügen",
+    "section": {
+      "mine": "Gespeichert & eigene",
+      "catalog": "Lebensmittel",
+      "online": "Weitere online (Open Food Facts)"
+    },
+    "loadingOnline": "Suche online …",
+    "searchOnline": "Online weitersuchen",
+    "onlineError": {
+      "offline": "Offline – es werden nur gespeicherte Lebensmittel angezeigt.",
+      "timeout": "Die Online-Suche hat zu lange gedauert.",
+      "rate_limited": "Kurz durchatmen – die Online-Suche ist gleich wieder verfügbar.",
+      "server": "Die Online-Suche ist gerade nicht erreichbar.",
+      "client": "Die Online-Suche ist gerade nicht erreichbar.",
+      "invalid_response": "Die Online-Suche hat ungültige Daten geliefert."
+    },
+    "noResults": "Nichts gefunden",
+    "noResultsHint": "Versuche einen anderen Begriff oder trage die Kalorien direkt ein.",
+    "tabs": {
+      "recent": "Zuletzt",
+      "favorites": "Favoriten",
+      "templates": "Vorlagen"
+    },
+    "emptyRecent": "Noch nichts gegessen",
+    "emptyRecentHint": "Hier erscheinen Lebensmittel, die du schon eingetragen hast – mit der letzten Menge.",
+    "emptyFavorites": "Keine Favoriten",
+    "emptyFavoritesHint": "Tippe beim Lebensmittel auf den Stern.",
+    "emptyTemplates": "Keine Vorlagen",
+    "emptyTemplatesHint": "Speichere eine Mahlzeit im Tagebuch über „…“ als Vorlage.",
+    "applyTemplate": "{{count}} Einträge hinzufügen?"
+  }
 }

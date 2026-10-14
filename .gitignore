@@ -14,3 +14,6 @@ android/
 !packages/food-db/fixtures/*.db
 web-build/
 .DS_Store
+
+# The bundled offline catalogue (built by `pnpm db:build`) is part of the app.
+!apps/mobile/assets/db/kalo-core.db

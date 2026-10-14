@@ -31,7 +31,8 @@
       "expo-sharing",
       "expo-image",
       "expo-font",
-      "expo-splash-screen"
+      "expo-splash-screen",
+      "expo-asset"
     ],
     "scheme": "kalo",
     "experiments": {

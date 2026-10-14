@@ -1,12 +1,12 @@
-import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, 'src'),
+      '@': fileURLToPath(new URL('./src', import.meta.url)),
       // Native modules are replaced with Node equivalents for logic tests.
-      'expo-crypto': path.resolve(__dirname, 'test/shims/expo-crypto.ts'),
+      'expo-crypto': fileURLToPath(new URL('./test/shims/expo-crypto.ts', import.meta.url)),
     },
   },
   test: { include: ['test/**/*.test.ts'] },

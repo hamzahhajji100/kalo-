@@ -86,7 +86,11 @@
       "recipe": "Recipe",
       "template": "Template",
       "copy": "Copied"
-    }
+    },
+    "copyMealYesterday": "Copy from yesterday",
+    "mealMenu": "Options for {{meal}}",
+    "saveTemplate": "Save as template",
+    "templateSaved": "Template saved"
   },
   "quick": {
     "kcal": "Calories",
@@ -110,5 +114,119 @@
     "dbTitle": "Could not open the database",
     "loadTitle": "Could not load data"
   },
-  "comingSoon": "This section is built in the next milestone."
+  "comingSoon": "This section is built in the next milestone.",
+  "food": {
+    "title": "Food",
+    "notFound": "Food not found",
+    "loadError": "Could not load – are you offline?",
+    "quantity": "Amount",
+    "unit": "Unit",
+    "package": "Package",
+    "serving": "Serving",
+    "onePortion": "1 serving",
+    "addToDiary": "Add · {{kcal}} kcal",
+    "addToRecipe": "Add to recipe",
+    "favorite": "Add to favourites",
+    "unfavorite": "Remove from favourites",
+    "verified": "Verified data",
+    "kcalPer": "kilocalories per {{unit}}",
+    "per100": "Nutrition per {{unit}}",
+    "energy": "Energy",
+    "saturatedFat": "of which saturates",
+    "sugar": "of which sugars",
+    "fiber": "Fibre",
+    "salt": "Salt",
+    "allergens": "Allergens",
+    "ingredients": "Ingredients",
+    "nutriScoreA11y": "Nutri-Score {{grade}}",
+    "totalsA11y": "{{kcal}} kilocalories, {{protein}} grams protein, {{carbs}} grams carbs, {{fat}} grams fat",
+    "sourceOff": "Data: Open Food Facts (ODbL). Provided by manufacturers and the community – please compare with the package.",
+    "sourceUsda": "Data: USDA FoodData Central (public domain).",
+    "sourceAi": "AI estimate – please check.",
+    "sourceRecipe": "Your recipe.",
+    "sourceCustom": "Created by you."
+  },
+  "micros": {
+    "calcium": "Calcium",
+    "iron": "Iron",
+    "magnesium": "Magnesium",
+    "potassium": "Potassium",
+    "zinc": "Zinc",
+    "vitaminC": "Vitamin C",
+    "vitaminD": "Vitamin D",
+    "vitaminB12": "Vitamin B12"
+  },
+  "allergens": {
+    "milk": "Milk",
+    "nuts": "Tree nuts",
+    "peanuts": "Peanuts",
+    "gluten": "Gluten",
+    "soybeans": "Soy",
+    "eggs": "Eggs",
+    "fish": "Fish",
+    "crustaceans": "Crustaceans",
+    "celery": "Celery",
+    "mustard": "Mustard",
+    "sesame-seeds": "Sesame",
+    "sulphur-dioxide-and-sulphites": "Sulphites",
+    "lupin": "Lupin",
+    "molluscs": "Molluscs"
+  },
+  "recipes": {
+    "title": "Recipes",
+    "new": "New recipe",
+    "editTitle": "Edit recipe",
+    "empty": "No recipes yet",
+    "emptyHint": "Add dishes you cook often – Kalo works out the nutrition per serving.",
+    "logHint": "Tap to log",
+    "edit": "Edit {{name}}",
+    "summary": "{{kcal}} kcal · {{protein}} g protein per serving · {{servings}} servings",
+    "noDraft": "No recipe open",
+    "name": "Name",
+    "namePlaceholder": "e.g. Lentil curry",
+    "servings": "Servings",
+    "cookedWeight": "Cooked weight (optional)",
+    "cookedWeightHint": "Weighing the finished dish makes servings more accurate – water evaporates while cooking.",
+    "ingredients": "Ingredients",
+    "addIngredient": "Add ingredient",
+    "removeIngredient": "Remove {{name}}",
+    "perServing": "Per serving",
+    "nutritionLine": "{{kcal}} kcal · P {{protein}} g · C {{carbs}} g · F {{fat}} g",
+    "totalLine": "Total: {{kcal}} kcal · {{grams}} g",
+    "deleteTitle": "Delete recipe?"
+  },
+  "search": {
+    "placeholder": "Food, brand or dish",
+    "clear": "Clear search",
+    "add": "Add",
+    "section": {
+      "mine": "Saved & your own",
+      "catalog": "Foods",
+      "online": "More online (Open Food Facts)"
+    },
+    "loadingOnline": "Searching online …",
+    "searchOnline": "Search online",
+    "onlineError": {
+      "offline": "Offline – showing saved foods only.",
+      "timeout": "The online search took too long.",
+      "rate_limited": "Take a breath – online search is available again in a moment.",
+      "server": "Online search is unavailable right now.",
+      "client": "Online search is unavailable right now.",
+      "invalid_response": "Online search returned invalid data."
+    },
+    "noResults": "Nothing found",
+    "noResultsHint": "Try another term or log the calories directly.",
+    "tabs": {
+      "recent": "Recent",
+      "favorites": "Favourites",
+      "templates": "Templates"
+    },
+    "emptyRecent": "Nothing eaten yet",
+    "emptyRecentHint": "Foods you've logged appear here – with the last amount.",
+    "emptyFavorites": "No favourites",
+    "emptyFavoritesHint": "Tap the star on a food.",
+    "emptyTemplates": "No templates",
+    "emptyTemplatesHint": "Save a meal as a template via “…” in the diary.",
+    "applyTemplate": "Add {{count}} entries?"
+  }
 }

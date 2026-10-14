@@ -19,9 +19,9 @@ type Option = {
 const OPTIONS: Option[] = [
   { key: 'photo', icon: 'camera' },
   { key: 'barcode', icon: 'barcode-outline' },
-  { key: 'search', icon: 'search' },
+  { key: 'search', icon: 'search', pathname: '/add/search' },
   { key: 'quick', icon: 'flash-outline', pathname: '/add/quick' },
-  { key: 'recipe', icon: 'restaurant-outline' },
+  { key: 'recipe', icon: 'restaurant-outline', pathname: '/recipes' },
 ];
 
 export default function AddSheet() {

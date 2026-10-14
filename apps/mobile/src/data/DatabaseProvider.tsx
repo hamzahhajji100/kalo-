@@ -5,6 +5,7 @@ import { ActivityIndicator, View } from 'react-native';
 
 import { EmptyState } from '@/ui';
 import migrations from '../../drizzle/migrations';
+import { initCatalog } from './catalog';
 import { db, expoDb } from './client';
 import { ensureDefaultMealTypes } from './repositories/mealTypes';
 
@@ -17,6 +18,9 @@ function seedOnce(): true {
   }
   return true;
 }
+
+// The catalogue loads in the background; search works online-only until it is ready.
+initCatalog().catch((e: unknown) => console.warn('Food catalogue unavailable', e));
 
 /** Runs migrations and seeds defaults before any screen touches the database. */
 export function DatabaseProvider({ children }: { children: ReactNode }) {

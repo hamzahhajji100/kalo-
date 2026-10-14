@@ -1,14 +1,17 @@
 import { Ionicons } from '@expo/vector-icons';
 import { router } from 'expo-router';
 import { useTranslation } from 'react-i18next';
-import { Pressable, View } from 'react-native';
+import { Alert, Pressable, View } from 'react-native';
 
-import type { DiaryEntry } from '@/data/repositories/diary';
+import { copyEntries, type DiaryEntry } from '@/data/repositories/diary';
+import { saveTemplateFromMeal } from '@/data/repositories/templates';
+import { shiftIsoDate } from '@/lib/date';
 import type { MealType } from '@/data/repositories/mealTypes';
 import { formatInt } from '@/lib/format';
 import { usePreferences } from '@/lib/preferences';
 import { useTheme } from '@/theme/ThemeProvider';
 import { Card, Text } from '@/ui';
+import { keys, useDbMutation } from '../queries';
 
 export function mealName(meal: MealType, t: (k: string) => string): string {
   return meal.key ? t(`meals.${meal.key}`) : (meal.name ?? '');
@@ -28,6 +31,33 @@ export function MealSection({
   const relaxed = usePreferences((s) => s.relaxedMode);
   const kcal = entries.reduce((s, e) => s + e.kcal, 0);
   const name = mealName(meal, t);
+  const copyYesterday = useDbMutation(
+    (db, _: void) =>
+      copyEntries(db, { fromDate: shiftIsoDate(date, -1), toDate: date, mealTypeId: meal.id }),
+    () => [keys.day(date), keys.recent],
+  );
+  const saveTemplate = useDbMutation(
+    (db, _: void) =>
+      saveTemplateFromMeal(db, { name: `${name} (${date})`, date, mealTypeId: meal.id }),
+    () => [['templates']],
+  );
+
+  const openMenu = () =>
+    Alert.alert(name, undefined, [
+      { text: t('diary.copyMealYesterday'), onPress: () => copyYesterday.mutate() },
+      ...(entries.length > 0
+        ? [
+            {
+              text: t('diary.saveTemplate'),
+              onPress: () =>
+                saveTemplate.mutate(undefined, {
+                  onSuccess: () => Alert.alert(t('diary.templateSaved')),
+                }),
+            },
+          ]
+        : []),
+      { text: t('common.cancel'), style: 'cancel' as const },
+    ]);
 
   return (
     <Card className="gap-1 py-3">
@@ -36,6 +66,15 @@ export function MealSection({
           <Text variant="heading">{name}</Text>
           {!relaxed && entries.length > 0 && <Text variant="caption">{formatInt(kcal)} kcal</Text>}
         </View>
+        <Pressable
+          accessibilityRole="button"
+          accessibilityLabel={t('diary.mealMenu', { meal: name })}
+          hitSlop={8}
+          onPress={openMenu}
+          className="mr-2 h-10 w-10 items-center justify-center rounded-full active:bg-surface-2"
+        >
+          <Ionicons name="ellipsis-horizontal" size={20} color={color('muted')} />
+        </Pressable>
         <Pressable
           accessibilityRole="button"
           accessibilityLabel={t('diary.addTo', { meal: name })}

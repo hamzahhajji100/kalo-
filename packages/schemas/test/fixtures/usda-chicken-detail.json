@@ -1,0 +1,23 @@
+{
+  "fdcId": 171077,
+  "description": "Chicken, broilers or fryers, breast, meat only, raw",
+  "dataType": "SR Legacy",
+  "foodNutrients": [
+    { "nutrient": { "id": 1008, "name": "Energy", "unitName": "kcal" }, "amount": 120 },
+    { "nutrient": { "id": 1003, "name": "Protein", "unitName": "g" }, "amount": 22.5 },
+    { "nutrient": { "id": 1004, "name": "Total lipid (fat)", "unitName": "g" }, "amount": 2.62 },
+    {
+      "nutrient": { "id": 1005, "name": "Carbohydrate, by difference", "unitName": "g" },
+      "amount": 0
+    },
+    { "nutrient": { "id": 1093, "name": "Sodium, Na", "unitName": "mg" }, "amount": 45 },
+    { "nutrient": { "id": 1089, "name": "Iron, Fe", "unitName": "mg" }, "amount": 0.37 },
+    { "nutrient": { "id": 9999, "name": "Garbage" } },
+    { "type": "FoodNutrient" }
+  ],
+  "foodPortions": [
+    { "gramWeight": 174, "portionDescription": "0.5 breast, bone and skin removed", "amount": 1 },
+    { "gramWeight": 0, "portionDescription": "broken" },
+    { "gramWeight": 112, "amount": 1, "modifier": "unit" }
+  ]
+}

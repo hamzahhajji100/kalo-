@@ -1,0 +1,7 @@
+{"code":"5701000000001","product_name":"Skyr Natur","brands":"Arla","countries_tags":["en:germany","en:denmark"],"unique_scans_n":500,"nutriments":{"energy-kcal_100g":63,"proteins_100g":11,"carbohydrates_100g":4,"fat_100g":0.2}}
+{"code":"4000000000002","product_name":"Döner Kebab","brands":"Imbiss","countries_tags":["en:austria"],"unique_scans_n":900,"nutriments":{"energy-kcal_100g":215,"proteins_100g":12,"carbohydrates_100g":20,"fat_100g":9.5}}
+{"code":"0123456789012","product_name":"US only","countries_tags":["en:united-states"],"nutriments":{"energy-kcal_100g":100,"proteins_100g":1,"carbohydrates_100g":20,"fat_100g":1}}
+not json
+{"code":"4000000000003","product_name":"Ohne Nährwerte","countries_tags":["en:germany"]}
+
+{"code":"4000000000004","product_name":"Kein Länder-Tag"}

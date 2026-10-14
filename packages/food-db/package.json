@@ -1,0 +1,36 @@
+{
+  "name": "@kalo/food-db",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Offline food catalogue: schema, import pipeline (Open Food Facts, USDA) and fuzzy search.",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "sideEffects": false,
+  "scripts": {
+    "lint": "eslint src scripts test",
+    "typecheck": "tsc -p tsconfig.json",
+    "test": "vitest run",
+    "build-db": "tsx scripts/build-db.ts"
+  },
+  "dependencies": {
+    "@kalo/core": "workspace:*",
+    "@kalo/schemas": "workspace:*"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.0",
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/node": "^22.0.0",
+    "better-sqlite3": "^12.0.0",
+    "csv-parse": "^6.0.0",
+    "eslint": "^9.39.0",
+    "fflate": "^0.8.2",
+    "tsx": "^4.20.0",
+    "typescript": "~6.0.3",
+    "typescript-eslint": "^8.71.2",
+    "vitest": "^5.0.4"
+  }
+}

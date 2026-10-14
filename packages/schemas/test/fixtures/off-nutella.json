@@ -1,0 +1,29 @@
+{
+  "code": "3017620422003",
+  "product_name": "Nutella",
+  "product_name_de": "Nutella",
+  "brands": "Nutella,Ferrero",
+  "image_front_url": "https://images.openfoodfacts.org/images/products/301/762/042/2003/front_en.633.400.jpg",
+  "quantity": "400 g",
+  "product_quantity": "400",
+  "product_quantity_unit": "g",
+  "serving_size": "15 g",
+  "serving_quantity": "15",
+  "nutriscore_grade": "e",
+  "ingredients_text_de": "Zucker, Palmöl, HASELNÜSSE 13 %, MAGERMILCHPULVER 8,7 %, fettarmer Kakao 7,4 %, Emulgator Lecithine (SOJA), Vanillin.",
+  "allergens_tags": ["en:milk", "en:nuts", "en:soybeans"],
+  "states_tags": ["en:to-be-checked", "en:nutrition-facts-completed"],
+  "unique_scans_n": 9123,
+  "last_modified_t": 1760000000,
+  "nutriments": {
+    "energy-kcal_100g": 539,
+    "energy-kj_100g": 2252,
+    "fat_100g": 30.9,
+    "saturated-fat_100g": 10.6,
+    "carbohydrates_100g": 57.5,
+    "sugars_100g": 56.3,
+    "proteins_100g": 6.3,
+    "salt_100g": 0.107,
+    "calcium_100g": 0.12
+  }
+}
