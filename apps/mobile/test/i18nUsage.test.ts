@@ -13,13 +13,15 @@ function files(dir: string): string[] {
   });
 }
 
-const has = (key: string) =>
+const lookup = (key: string) =>
   key
     .split('.')
     .reduce<unknown>(
       (o, k) => (o && typeof o === 'object' ? (o as Record<string, unknown>)[k] : undefined),
       de,
-    ) !== undefined;
+    );
+// i18next plural keys are stored as key_one / key_other.
+const has = (key: string) => lookup(key) !== undefined || lookup(`${key}_other`) !== undefined;
 
 describe('translation keys used in code', () => {
   it('exist in the German locale', () => {

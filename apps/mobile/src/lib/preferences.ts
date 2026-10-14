@@ -25,7 +25,12 @@ export const usePreferences = create<Preferences>()(
     }),
     {
       name: 'kalo.preferences',
-      storage: createJSONStorage(() => Storage),
+      // Synchronous storage so preferences (e.g. onboarding state) are available on the first render.
+      storage: createJSONStorage(() => ({
+        getItem: (k: string) => Storage.getItemSync(k),
+        setItem: (k: string, v: string) => Storage.setItemSync(k, v),
+        removeItem: (k: string) => Storage.removeItemSync(k),
+      })),
       partialize: ({ set: _set, ...rest }) => rest,
     },
   ),

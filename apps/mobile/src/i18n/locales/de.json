@@ -337,5 +337,188 @@
     "rejectedMatch": "Hinweis: „{{name}}“ aus der Datenbank passt nicht zur Schätzung (z. B. roh statt gekocht) – KI-Werte verwendet.",
     "amountSlider": "Menge von {{name}} in Gramm",
     "disclaimer": "Mengen sind Schätzungen. Ein kurzer Blick auf die Gramm-Angaben macht dein Tagebuch deutlich genauer."
+  },
+  "onboarding": {
+    "welcomeTitle": "Dein persönlicher Ernährungs-Coach",
+    "welcomeBody": "Foto machen, Barcode scannen oder suchen – Kalo rechnet aus, wie viel du für dein Ziel essen darfst, und passt den Plan jede Woche an deinen echten Fortschritt an. Das Einrichten dauert etwa eine Minute.",
+    "disclaimer": "Kalo ist kein Medizinprodukt und ersetzt keine ärztliche oder ernährungstherapeutische Beratung. Bei Vorerkrankungen, in Schwangerschaft und Stillzeit oder bei Essstörungen sprich bitte vorher mit einer Fachperson.",
+    "letsGo": "Los geht’s",
+    "next": "Weiter",
+    "back": "Zurück",
+    "start": "Plan starten",
+    "continueWithout": "Ohne Kalorienziel fortfahren",
+    "optional": "optional",
+    "goalTitle": "Was ist dein Ziel?",
+    "goals": {
+      "lose": {
+        "title": "Abnehmen",
+        "subtitle": "Fett verlieren, Muskeln erhalten"
+      },
+      "maintain": {
+        "title": "Gewicht halten",
+        "subtitle": "Ausgewogen essen, Form halten"
+      },
+      "gain": {
+        "title": "Muskeln aufbauen",
+        "subtitle": "Kontrolliert zunehmen, Kraft steigern"
+      }
+    },
+    "bodyTitle": "Ein paar Eckdaten",
+    "sex": "Geschlecht",
+    "female": "Weiblich",
+    "male": "Männlich",
+    "sexHint": "Wird nur für die Grundumsatz-Formel genutzt.",
+    "age": "Alter",
+    "years": "Jahre",
+    "height": "Größe",
+    "weight": "Gewicht heute",
+    "bodyFat": "Körperfettanteil",
+    "activityTitle": "Wie aktiv bist du – inklusive Sport?",
+    "activity": {
+      "sedentary": {
+        "title": "Kaum aktiv",
+        "subtitle": "Bürojob, wenig Bewegung, kein Sport"
+      },
+      "light": {
+        "title": "Leicht aktiv",
+        "subtitle": "Viel unterwegs oder 1–3× Sport pro Woche"
+      },
+      "moderate": {
+        "title": "Aktiv",
+        "subtitle": "Aktiver Alltag oder 3–5× Sport pro Woche"
+      },
+      "active": {
+        "title": "Sehr aktiv",
+        "subtitle": "Körperlicher Job oder 6–7× Sport pro Woche"
+      },
+      "very_active": {
+        "title": "Extrem aktiv",
+        "subtitle": "Leistungssport oder harte körperliche Arbeit"
+      }
+    },
+    "trainingDays": "Krafttraining / Sport pro Woche (Tage)",
+    "experience": "Trainingserfahrung",
+    "experienceLevels": {
+      "beginner": "Einsteiger",
+      "intermediate": "Fortgeschritten",
+      "advanced": "Erfahren"
+    },
+    "targetTitle": "Dein Zielgewicht und Tempo",
+    "targetWeight": "Zielgewicht",
+    "pace": "Tempo",
+    "paces": {
+      "slow": "Entspannt",
+      "medium": "Ausgewogen",
+      "fast": "Ambitioniert"
+    },
+    "paceLoss": "ca. {{kg}} kg pro Woche",
+    "paceGain": {
+      "slow": "Kleiner Überschuss, wenig Fettzuwachs",
+      "medium": "Moderater Überschuss",
+      "fast": "Großer Überschuss, schneller, aber mehr Fett"
+    },
+    "dietTitle": "Wie isst du?",
+    "diets": {
+      "omnivore": "Alles",
+      "vegetarian": "Vegetarisch",
+      "vegan": "Vegan",
+      "pescetarian": "Pescetarisch",
+      "low_carb": "Low Carb",
+      "keto": "Keto"
+    },
+    "allergies": "Allergien & Unverträglichkeiten (optional)",
+    "planTitle": "Dein Plan",
+    "noPlanTitle": "Wir rechnen hier lieber nicht",
+    "planExplain": "Kalo startet mit diesen Werten und vergleicht jede Woche dein Gewicht mit dem, was du gegessen hast. Weicht das Tempo vom Plan ab, schlägt der Coach eine Anpassung vor – mit Begründung."
+  },
+  "coach": {
+    "previewLine": "Vorschau: {{kcal}} kcal am Tag · {{protein}} g Protein",
+    "kcalPerDay": "kcal pro Tag",
+    "planDetails": "Grundumsatz {{bmr}} kcal · Gesamtumsatz {{tdee}} kcal · Wasser {{water}} l",
+    "weeklyLoss": "Erwartet: etwa {{kg}} kg weniger pro Woche",
+    "weeklyGain": "Erwartet: etwa {{kg}} kg mehr pro Woche",
+    "clamped": "Dein Ziel wurde auf eine sichere Untergrenze angehoben. Es geht dadurch etwas langsamer – dafür nachhaltig.",
+    "block": {
+      "minor": {
+        "title": "Für dich gibt es keinen Kalorienplan",
+        "body": "Unter 18 brauchst du Energie fürs Wachstum. Kalo rechnet für dich deshalb keine Diätziele aus. Du kannst Kalo trotzdem nutzen, um ausgewogen zu essen – ohne Kalorienzahlen. Wenn du abnehmen möchtest, sprich bitte mit deiner Ärztin oder deinem Arzt."
+      },
+      "invalid_input": {
+        "title": "Bitte prüfe deine Angaben",
+        "body": "Einige Werte liegen außerhalb des Bereichs, für den Kalo sinnvoll rechnen kann."
+      },
+      "underweight": {
+        "title": "Abnehmen empfehlen wir hier nicht",
+        "body": "Dein Gewicht liegt bereits im Untergewicht. Wir unterstützen dich gern beim Halten oder Aufbauen. Bei Sorgen rund ums Essen findest du Hilfe z. B. bei der BZgA-Beratung zu Essstörungen."
+      },
+      "target_underweight": {
+        "title": "Dieses Zielgewicht ist zu niedrig",
+        "body": "Für deine Größe beginnt der gesunde Bereich bei etwa {{kg}} kg. Wähle bitte ein Ziel ab diesem Wert."
+      },
+      "target_direction": {
+        "title": "Ziel und Zielgewicht passen nicht zusammen",
+        "body": "Das Zielgewicht liegt in der anderen Richtung. Passe bitte Ziel oder Zielgewicht an."
+      }
+    },
+    "checkInReady": "Dein Wochen-Check-in ist bereit",
+    "checkInReadyHint": "Sieh dir an, wie dein Plan zu deinem echten Verbrauch passt.",
+    "forecastTitle": "Prognose",
+    "forecast": "Bei diesem Tempo erreichst du {{target}} kg am {{date}}.",
+    "forecastTrend": "Basierend auf deinem Gewichtstrend ({{kg}} kg pro Woche).",
+    "forecastPlan": "Basierend auf deinem Plan ({{kg}} kg pro Woche) – ab zwei Wochen Wiegen nutzt Kalo deinen echten Trend.",
+    "checkInTitle": "Wochen-Check-in",
+    "needWeight": "Trag zuerst dein Gewicht ein",
+    "ok": "Verstanden",
+    "accept": "Neues Ziel übernehmen ({{kcal}} kcal)",
+    "keep": "Bei {{kcal}} kcal bleiben",
+    "plannedPerWeek": "Geplant pro Woche",
+    "actualPerWeek": "Tatsächlich (Trend)",
+    "estimatedTdee": "Geschätzter Verbrauch",
+    "dataQuality": "Datengrundlage",
+    "dataQualityValue": "{{days}} Tage geloggt · {{weighIns}} Wiegungen",
+    "newTarget": "Kalorienziel",
+    "reasons": {
+      "insufficient_data": {
+        "title": "Noch zu wenig Daten",
+        "body": "Für eine Anpassung braucht Kalo mindestens eine Woche mit vollständig eingetragenen Tagen und regelmäßige Wiegungen (ideal: jeden Morgen). Dein Ziel bleibt erst einmal gleich."
+      },
+      "on_track": {
+        "title": "Du bist voll im Plan",
+        "body": "Dein Gewicht entwickelt sich wie geplant ({{actual}} pro Woche). Dein Ziel bleibt gleich – weiter so!"
+      },
+      "slower_than_planned": {
+        "title": "Es geht langsamer als geplant",
+        "body": "Geplant waren {{planned}} pro Woche, tatsächlich sind es {{actual}}. Dein Körper verbraucht wohl etwas weniger als geschätzt (etwa {{tdee}} kcal). Kalo schlägt eine kleine Anpassung vor."
+      },
+      "faster_than_planned": {
+        "title": "Es geht schneller als geplant",
+        "body": "Geplant waren {{planned}} pro Woche, tatsächlich sind es {{actual}}. Du verbrauchst mehr als gedacht (etwa {{tdee}} kcal) – Kalo schlägt vor, etwas mehr zu essen, damit du Muskeln und Energie behältst."
+      },
+      "expenditure_updated": {
+        "title": "Dein Verbrauch ist neu berechnet",
+        "body": "Dein Tempo passt, aber dein tatsächlicher Verbrauch liegt bei etwa {{tdee}} kcal. Kalo passt dein Ziel daran an."
+      }
+    },
+    "howItWorks": "So rechnet der Coach: Er glättet dein Gewicht zu einem Trend, vergleicht die Veränderung mit deinen gegessenen Kalorien und schätzt so deinen echten Verbrauch. Pro Woche ändert sich dein Ziel um höchstens 150 kcal und nie unter eine sichere Untergrenze."
+  },
+  "profile": {
+    "target": "Ziel",
+    "trainingDays_one": "{{count}} Trainingstag",
+    "trainingDays_other": "{{count}} Trainingstage",
+    "currentPlan": "Aktueller Plan",
+    "tdee": "Geschätzter Verbrauch: {{kcal}} kcal pro Tag",
+    "edit": "Ziel & Profil ändern",
+    "create": "Plan erstellen",
+    "history": "Verlauf deines Ziels",
+    "reasons": {
+      "onboarding": "Start",
+      "profile_changed": "Profil geändert",
+      "manual": "Manuell",
+      "on_track": "Check-in: im Plan",
+      "slower_than_planned": "Check-in: langsamer",
+      "faster_than_planned": "Check-in: schneller",
+      "expenditure_updated": "Check-in: Verbrauch angepasst",
+      "insufficient_data": "Check-in"
+    }
   }
 }

@@ -337,5 +337,188 @@
     "rejectedMatch": "Note: “{{name}}” from the database doesn't match the estimate (e.g. raw vs cooked) – AI values used.",
     "amountSlider": "Amount of {{name}} in grams",
     "disclaimer": "Amounts are estimates. A quick look at the grams makes your diary much more accurate."
+  },
+  "onboarding": {
+    "welcomeTitle": "Your personal nutrition coach",
+    "welcomeBody": "Snap a photo, scan a barcode or search – Kalo works out how much you can eat for your goal and adjusts the plan every week to your real progress. Setup takes about a minute.",
+    "disclaimer": "Kalo is not a medical device and does not replace advice from a doctor or dietitian. If you have health conditions, are pregnant or breastfeeding, or have an eating disorder, please talk to a professional first.",
+    "letsGo": "Let’s go",
+    "next": "Next",
+    "back": "Back",
+    "start": "Start my plan",
+    "continueWithout": "Continue without a calorie target",
+    "optional": "optional",
+    "goalTitle": "What’s your goal?",
+    "goals": {
+      "lose": {
+        "title": "Lose weight",
+        "subtitle": "Lose fat, keep muscle"
+      },
+      "maintain": {
+        "title": "Maintain weight",
+        "subtitle": "Eat balanced, stay in shape"
+      },
+      "gain": {
+        "title": "Build muscle",
+        "subtitle": "Gain steadily, get stronger"
+      }
+    },
+    "bodyTitle": "A few basics",
+    "sex": "Sex",
+    "female": "Female",
+    "male": "Male",
+    "sexHint": "Only used for the metabolic rate formula.",
+    "age": "Age",
+    "years": "years",
+    "height": "Height",
+    "weight": "Weight today",
+    "bodyFat": "Body fat",
+    "activityTitle": "How active are you – including exercise?",
+    "activity": {
+      "sedentary": {
+        "title": "Mostly inactive",
+        "subtitle": "Desk job, little movement, no exercise"
+      },
+      "light": {
+        "title": "Lightly active",
+        "subtitle": "On your feet a lot or exercise 1–3× a week"
+      },
+      "moderate": {
+        "title": "Active",
+        "subtitle": "Active daily life or exercise 3–5× a week"
+      },
+      "active": {
+        "title": "Very active",
+        "subtitle": "Physical job or exercise 6–7× a week"
+      },
+      "very_active": {
+        "title": "Extremely active",
+        "subtitle": "Competitive sport or hard physical work"
+      }
+    },
+    "trainingDays": "Strength training / sport per week (days)",
+    "experience": "Training experience",
+    "experienceLevels": {
+      "beginner": "Beginner",
+      "intermediate": "Intermediate",
+      "advanced": "Advanced"
+    },
+    "targetTitle": "Your target weight and pace",
+    "targetWeight": "Target weight",
+    "pace": "Pace",
+    "paces": {
+      "slow": "Relaxed",
+      "medium": "Balanced",
+      "fast": "Ambitious"
+    },
+    "paceLoss": "about {{kg}} kg per week",
+    "paceGain": {
+      "slow": "Small surplus, little fat gain",
+      "medium": "Moderate surplus",
+      "fast": "Large surplus, faster but more fat"
+    },
+    "dietTitle": "How do you eat?",
+    "diets": {
+      "omnivore": "Everything",
+      "vegetarian": "Vegetarian",
+      "vegan": "Vegan",
+      "pescetarian": "Pescetarian",
+      "low_carb": "Low carb",
+      "keto": "Keto"
+    },
+    "allergies": "Allergies & intolerances (optional)",
+    "planTitle": "Your plan",
+    "noPlanTitle": "We’d rather not calculate here",
+    "planExplain": "Kalo starts with these numbers and compares your weight with what you ate every week. If your pace differs from the plan, the coach suggests an adjustment – with an explanation."
+  },
+  "coach": {
+    "previewLine": "Preview: {{kcal}} kcal a day · {{protein}} g protein",
+    "kcalPerDay": "kcal per day",
+    "planDetails": "BMR {{bmr}} kcal · TDEE {{tdee}} kcal · water {{water}} l",
+    "weeklyLoss": "Expected: about {{kg}} kg less per week",
+    "weeklyGain": "Expected: about {{kg}} kg more per week",
+    "clamped": "Your target was raised to a safe minimum. Progress is a bit slower – but sustainable.",
+    "block": {
+      "minor": {
+        "title": "No calorie plan for you",
+        "body": "Under 18 you need energy to grow, so Kalo doesn’t calculate diet targets for you. You can still use Kalo to eat balanced – without calorie numbers. If you want to lose weight, please talk to your doctor."
+      },
+      "invalid_input": {
+        "title": "Please check your details",
+        "body": "Some values are outside the range Kalo can calculate sensibly."
+      },
+      "underweight": {
+        "title": "We don’t recommend losing weight here",
+        "body": "Your weight is already in the underweight range. We’re happy to help you maintain or build. If you’re worried about eating, please reach out to a support service for eating disorders."
+      },
+      "target_underweight": {
+        "title": "This target weight is too low",
+        "body": "For your height the healthy range starts at about {{kg}} kg. Please choose a target from that value."
+      },
+      "target_direction": {
+        "title": "Goal and target weight don’t match",
+        "body": "The target weight points the other way. Please adjust your goal or target weight."
+      }
+    },
+    "checkInReady": "Your weekly check-in is ready",
+    "checkInReadyHint": "See how your plan matches your real expenditure.",
+    "forecastTitle": "Forecast",
+    "forecast": "At this pace you’ll reach {{target}} kg on {{date}}.",
+    "forecastTrend": "Based on your weight trend ({{kg}} kg per week).",
+    "forecastPlan": "Based on your plan ({{kg}} kg per week) – after two weeks of weigh-ins Kalo uses your real trend.",
+    "checkInTitle": "Weekly check-in",
+    "needWeight": "Log your weight first",
+    "ok": "Got it",
+    "accept": "Use new target ({{kcal}} kcal)",
+    "keep": "Stay at {{kcal}} kcal",
+    "plannedPerWeek": "Planned per week",
+    "actualPerWeek": "Actual (trend)",
+    "estimatedTdee": "Estimated expenditure",
+    "dataQuality": "Data",
+    "dataQualityValue": "{{days}} days logged · {{weighIns}} weigh-ins",
+    "newTarget": "Calorie target",
+    "reasons": {
+      "insufficient_data": {
+        "title": "Not enough data yet",
+        "body": "To adjust, Kalo needs at least a week of fully logged days and regular weigh-ins (ideally every morning). Your target stays the same for now."
+      },
+      "on_track": {
+        "title": "You’re right on track",
+        "body": "Your weight is moving as planned ({{actual}} per week). Your target stays the same – keep going!"
+      },
+      "slower_than_planned": {
+        "title": "Progress is slower than planned",
+        "body": "The plan was {{planned}} per week; actually it’s {{actual}}. Your body seems to burn a little less than estimated (about {{tdee}} kcal). Kalo suggests a small adjustment."
+      },
+      "faster_than_planned": {
+        "title": "Progress is faster than planned",
+        "body": "The plan was {{planned}} per week; actually it’s {{actual}}. You burn more than expected (about {{tdee}} kcal) – Kalo suggests eating a bit more so you keep muscle and energy."
+      },
+      "expenditure_updated": {
+        "title": "Your expenditure was recalculated",
+        "body": "Your pace is right, but your actual expenditure is about {{tdee}} kcal. Kalo adjusts your target to it."
+      }
+    },
+    "howItWorks": "How the coach works: it smooths your weight into a trend, compares the change with the calories you ate and estimates your real expenditure from that. Your target changes by at most 150 kcal per week and never goes below a safe minimum."
+  },
+  "profile": {
+    "target": "Target",
+    "trainingDays_one": "{{count}} training day",
+    "trainingDays_other": "{{count}} training days",
+    "currentPlan": "Current plan",
+    "tdee": "Estimated expenditure: {{kcal}} kcal per day",
+    "edit": "Change goal & profile",
+    "create": "Create plan",
+    "history": "Target history",
+    "reasons": {
+      "onboarding": "Start",
+      "profile_changed": "Profile changed",
+      "manual": "Manual",
+      "on_track": "Check-in: on track",
+      "slower_than_planned": "Check-in: slower",
+      "faster_than_planned": "Check-in: faster",
+      "expenditure_updated": "Check-in: expenditure updated",
+      "insufficient_data": "Check-in"
+    }
   }
 }

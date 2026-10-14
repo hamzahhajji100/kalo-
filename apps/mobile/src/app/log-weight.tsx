@@ -17,7 +17,7 @@ export default function LogWeightScreen() {
 
   const save = useDbMutation(
     (db, v: number) => upsertWeight(db, today, v),
-    () => [keys.body, ['progress']],
+    () => [keys.body, ['progress'], ['coach']],
   );
 
   return (

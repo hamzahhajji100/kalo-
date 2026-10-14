@@ -1,9 +1,10 @@
 import { Ionicons } from '@expo/vector-icons';
 import * as Haptics from 'expo-haptics';
-import { router, Tabs } from 'expo-router';
+import { Redirect, router, Tabs } from 'expo-router';
 import { useTranslation } from 'react-i18next';
 import { Pressable, View } from 'react-native';
 
+import { usePreferences } from '@/lib/preferences';
 import { useTheme } from '@/theme/ThemeProvider';
 
 /** Centre "+" button: opens the add sheet so any entry type is at most 2 taps away. */
@@ -30,6 +31,8 @@ function AddButton() {
 export default function TabsLayout() {
   const { t } = useTranslation();
   const { color } = useTheme();
+  const hasOnboarded = usePreferences((s) => s.hasOnboarded);
+  if (!hasOnboarded) return <Redirect href="/onboarding" />;
 
   return (
     <Tabs

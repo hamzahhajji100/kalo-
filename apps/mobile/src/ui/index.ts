@@ -9,3 +9,4 @@ export { ProgressRing } from './ProgressRing';
 export { SheetScreen } from './Sheet';
 export { Skeleton } from './Skeleton';
 export { Text } from './Text';
+export { OptionCard } from './OptionCard';

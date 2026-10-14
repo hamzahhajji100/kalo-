@@ -26,6 +26,8 @@ function RootStack() {
       <StatusBar style={isDark ? 'light' : 'dark'} />
       <Stack screenOptions={{ headerShown: false }}>
         <Stack.Screen name="(tabs)" />
+        <Stack.Screen name="onboarding" options={{ gestureEnabled: false }} />
+        <Stack.Screen name="check-in" options={{ presentation: 'modal' }} />
         <Stack.Screen
           name="add/index"
           options={{
