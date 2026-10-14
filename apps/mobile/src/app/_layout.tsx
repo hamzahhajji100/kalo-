@@ -8,6 +8,7 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import i18n, { resolveLanguage } from '@/i18n';
+import { DatabaseProvider } from '@/data/DatabaseProvider';
 import { usePreferences } from '@/lib/preferences';
 import { queryClient } from '@/lib/queryClient';
 import { ThemeProvider, useTheme } from '@/theme/ThemeProvider';
@@ -34,6 +35,9 @@ function RootStack() {
             sheetCornerRadius: 28,
           }}
         />
+        <Stack.Screen name="add/quick" options={{ presentation: 'modal' }} />
+        <Stack.Screen name="entry/[id]" options={{ presentation: 'modal' }} />
+        <Stack.Screen name="log-weight" options={{ presentation: 'modal' }} />
       </Stack>
     </>
   );
@@ -45,7 +49,9 @@ export default function RootLayout() {
       <SafeAreaProvider>
         <QueryClientProvider client={queryClient}>
           <ThemeProvider>
-            <RootStack />
+            <DatabaseProvider>
+              <RootStack />
+            </DatabaseProvider>
           </ThemeProvider>
         </QueryClientProvider>
       </SafeAreaProvider>

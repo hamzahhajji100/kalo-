@@ -1,5 +1,11 @@
 export { Button } from './Button';
 export { Card } from './Card';
+export { Chips } from './Chips';
 export { EmptyState } from './EmptyState';
+export { parseDecimal } from '@/lib/number';
+export { NumberField, TextField } from './NumberField';
+export { ProgressBar } from './ProgressBar';
+export { ProgressRing } from './ProgressRing';
+export { SheetScreen } from './Sheet';
 export { Skeleton } from './Skeleton';
 export { Text } from './Text';

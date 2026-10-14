@@ -1,5 +1,5 @@
 import { Ionicons } from '@expo/vector-icons';
-import { router, type Href } from 'expo-router';
+import { router, useLocalSearchParams, type Href } from 'expo-router';
 import type { ComponentProps } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Pressable, View } from 'react-native';
@@ -8,49 +8,57 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useTheme } from '@/theme/ThemeProvider';
 import { Text } from '@/ui';
 
+type OptionKey = 'photo' | 'barcode' | 'search' | 'quick' | 'recipe';
 type Option = {
-  key: 'photo' | 'barcode' | 'search' | 'quick' | 'recipe';
+  key: OptionKey;
   icon: ComponentProps<typeof Ionicons>['name'];
-  href: Href;
+  pathname?: Href & string;
 };
 
-// Routes for these options are added in their milestones; until then they fall back to the add sheet.
+// Options without a pathname are built in later milestones and shown as "coming soon".
 const OPTIONS: Option[] = [
-  { key: 'photo', icon: 'camera', href: '/add' },
-  { key: 'barcode', icon: 'barcode-outline', href: '/add' },
-  { key: 'search', icon: 'search', href: '/add' },
-  { key: 'quick', icon: 'flash-outline', href: '/add' },
-  { key: 'recipe', icon: 'restaurant-outline', href: '/add' },
+  { key: 'photo', icon: 'camera' },
+  { key: 'barcode', icon: 'barcode-outline' },
+  { key: 'search', icon: 'search' },
+  { key: 'quick', icon: 'flash-outline', pathname: '/add/quick' },
+  { key: 'recipe', icon: 'restaurant-outline' },
 ];
 
 export default function AddSheet() {
   const { t } = useTranslation();
   const { color } = useTheme();
   const insets = useSafeAreaInsets();
+  // Forward date/meal from a meal's "+" button to the chosen flow.
+  const params = useLocalSearchParams<{ date?: string; meal?: string }>();
 
   return (
     <View className="bg-surface px-5 pt-6" style={{ paddingBottom: insets.bottom + 16 }}>
-      <Text variant="title" className="mb-4">
+      <Text variant="title" className="mb-4" accessibilityRole="header">
         {t('add.title')}
       </Text>
       <View className="flex-row flex-wrap gap-3">
-        {OPTIONS.map((o, i) => (
-          <Pressable
-            key={o.key}
-            accessibilityRole="button"
-            accessibilityLabel={`${t(`add.${o.key}`)}. ${t(`add.${o.key}Hint`)}`}
-            onPress={() => router.replace(o.href)}
-            className={`min-h-[96px] rounded-card bg-surface-2 p-4 active:opacity-80 ${i < 2 ? 'basis-[48%] flex-grow' : 'basis-[31%] flex-grow'}`}
-          >
-            <Ionicons name={o.icon} size={26} color={color(i === 0 ? 'brand' : 'text')} />
-            <Text variant="heading" className="mt-2">
-              {t(`add.${o.key}`)}
-            </Text>
-            <Text variant="caption" numberOfLines={1}>
-              {t(`add.${o.key}Hint`)}
-            </Text>
-          </Pressable>
-        ))}
+        {OPTIONS.map((o, i) => {
+          const enabled = !!o.pathname;
+          return (
+            <Pressable
+              key={o.key}
+              accessibilityRole="button"
+              accessibilityState={{ disabled: !enabled }}
+              accessibilityLabel={`${t(`add.${o.key}`)}. ${enabled ? t(`add.${o.key}Hint`) : t('add.soon')}`}
+              disabled={!enabled}
+              onPress={() => o.pathname && router.replace({ pathname: o.pathname, params })}
+              className={`min-h-[96px] rounded-card bg-surface-2 p-4 active:opacity-80 ${i < 2 ? 'flex-grow basis-[48%]' : 'flex-grow basis-[31%]'} ${enabled ? '' : 'opacity-50'}`}
+            >
+              <Ionicons name={o.icon} size={26} color={color(i === 0 ? 'brand' : 'text')} />
+              <Text variant="heading" className="mt-2">
+                {t(`add.${o.key}`)}
+              </Text>
+              <Text variant="caption" numberOfLines={1}>
+                {enabled ? t(`add.${o.key}Hint`) : t('add.soon')}
+              </Text>
+            </Pressable>
+          );
+        })}
       </View>
     </View>
   );

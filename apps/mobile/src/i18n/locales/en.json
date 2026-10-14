@@ -17,7 +17,8 @@
     "quick": "Quick calories",
     "quickHint": "Just log kcal",
     "recipe": "Recipe",
-    "recipeHint": "Your own recipes"
+    "recipeHint": "Your own recipes",
+    "soon": "Coming soon"
   },
   "common": {
     "close": "Close",
@@ -26,8 +27,88 @@
     "delete": "Delete",
     "retry": "Try again",
     "kcal": "kcal",
-    "g": "g"
+    "g": "g",
+    "of": "of"
   },
-  "macros": { "protein": "Protein", "carbs": "Carbs", "fat": "Fat" },
+  "macros": {
+    "protein": "Protein",
+    "carbs": "Carbs",
+    "fat": "Fat",
+    "proteinShort": "Protein",
+    "carbsShort": "Carbs",
+    "fatShort": "Fat"
+  },
+  "meals": {
+    "breakfast": "Breakfast",
+    "lunch": "Lunch",
+    "dinner": "Dinner",
+    "snacks": "Snacks"
+  },
+  "home": {
+    "today": "Today",
+    "yesterday": "Yesterday",
+    "tomorrow": "Tomorrow",
+    "kcalLeft": "kcal left",
+    "kcalOver": "kcal over",
+    "youMayEat": "You can still eat {{kcal}} kcal today, including {{protein}} g of protein.",
+    "remainingA11y": "{{kcal}} kilocalories and {{protein}} grams of protein left",
+    "overBy": "You're {{kcal}} kcal over your target today. That's fine – one day matters little, the weekly average a lot.",
+    "relaxedRing": "Listen to your hunger – you're doing well.",
+    "noPlanTitle": "No personal plan yet",
+    "noPlanBody": "Once you set your goal, Kalo shows here how much you can still eat today.",
+    "eatenToday": "{{kcal}} kcal eaten",
+    "water": "Water",
+    "glass": "Glass ({{ml}} ml)",
+    "addGlass": "Add a {{ml}} millilitre glass of water",
+    "removeGlass": "Remove last glass",
+    "weight": "Weight",
+    "weightA11y": "Weight: {{kg}} kilograms. Tap to log",
+    "logWeight": "Log",
+    "noWeight": "No weight logged yet"
+  },
+  "diary": {
+    "meal": "Meal",
+    "addTo": "Add to {{meal}}",
+    "emptyMeal": "Nothing logged yet",
+    "editHint": "Tap to edit",
+    "previousDay": "Previous day",
+    "nextDay": "Next day",
+    "jumpToToday": "Jump to today",
+    "copyFrom": "Copy everything from {{day}}",
+    "copyTitle": "Copy day",
+    "copyBody": "Copy all entries from {{from}} to {{to}}?",
+    "copyConfirm": "Copy",
+    "source": {
+      "photo": "Photo",
+      "barcode": "Barcode",
+      "search": "Search",
+      "quick": "Quick calories",
+      "recipe": "Recipe",
+      "template": "Template",
+      "copy": "Copied"
+    }
+  },
+  "quick": {
+    "kcal": "Calories",
+    "name": "Name (optional)",
+    "defaultName": "Quick calories",
+    "kcalError": "Please enter calories between 1 and 10,000."
+  },
+  "entry": {
+    "title": "Entry",
+    "amount": "Amount",
+    "invalidAmount": "Please enter a valid amount.",
+    "deleteTitle": "Delete entry?",
+    "notFound": "This entry no longer exists."
+  },
+  "weight": {
+    "today": "Weight today",
+    "invalid": "Please enter a weight between 30 and 350 kg.",
+    "hint": "Tip: weigh yourself in the morning after using the bathroom. Day-to-day swings are normal – Kalo smooths them into a trend."
+  },
+  "errors": {
+    "dbTitle": "Could not open the database",
+    "loadTitle": "Could not load data"
+  },
   "comingSoon": "This section is built in the next milestone."
 }
