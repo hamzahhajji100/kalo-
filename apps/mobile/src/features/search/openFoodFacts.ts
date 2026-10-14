@@ -11,7 +11,7 @@ import { getJsonDeduped, HttpError, RateLimiter, requestJson } from '@/lib/http'
 const BASE = 'https://world.openfoodfacts.org';
 /** OFF asks API users to identify themselves. */
 const USER_AGENT =
-  'Kalo/0.1 (iOS/Android calorie tracker; contact: github.com/hamzahhajji100/kalo)';
+  'Kalo/0.1 (iOS/Android calorie tracker; contact: github.com/hamzahhajji100/kalo-)';
 const FIELDS = OFF_FIELDS.join(',');
 
 const searchLimiter = new RateLimiter(10, 60_000);

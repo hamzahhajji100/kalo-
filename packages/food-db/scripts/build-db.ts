@@ -45,7 +45,7 @@ const { values: args } = parseArgs({
     'off-country': { type: 'string', multiple: true },
     'user-agent': {
       type: 'string',
-      default: 'Kalo/0.1 (food catalogue builder; https://github.com/hamzahhajji100/kalo)',
+      default: 'Kalo/0.1 (food catalogue builder; https://github.com/hamzahhajji100/kalo-)',
     },
   },
 });

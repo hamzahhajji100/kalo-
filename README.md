@@ -16,7 +16,7 @@ Foto vom Essen machen, Barcode scannen oder suchen – Kalo erkennt Lebensmittel
 Voraussetzungen: **Node 22**, **pnpm 10** (`corepack enable`), die App **Expo Go** auf dem Handy (oder ein iOS-Simulator / Android-Emulator).
 
 ```bash
-git clone https://github.com/hamzahhajji100/kalo.git && cd kalo
+git clone https://github.com/hamzahhajji100/kalo-.git kalo && cd kalo
 pnpm install
 cp .env.example .env          # Werte siehe unten
 pnpm test                      # alle Tests (Kernlogik, Suche, API, App-Logik)
