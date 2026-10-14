@@ -28,6 +28,7 @@ function RootStack() {
         <Stack.Screen name="(tabs)" />
         <Stack.Screen name="onboarding" options={{ gestureEnabled: false }} />
         <Stack.Screen name="check-in" options={{ presentation: 'modal' }} />
+        <Stack.Screen name="measurements" options={{ presentation: 'modal' }} />
         <Stack.Screen
           name="add/index"
           options={{

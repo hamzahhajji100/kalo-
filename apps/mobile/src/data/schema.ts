@@ -72,6 +72,8 @@ export const diaryEntries = sqliteTable(
     /** Human-readable amount, e.g. "2 Scheiben" (optional). */
     amountLabel: text('amount_label'),
     ...nutrientColumns(),
+    /** Absolute micronutrients for the eaten amount (JSON, keys as in the Micros schema), if known. */
+    microsJson: text('micros_json'),
     source: text('source', {
       enum: ['photo', 'barcode', 'search', 'quick', 'recipe', 'template', 'copy'],
     }).notNull(),

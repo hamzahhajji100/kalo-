@@ -75,3 +75,13 @@ export function undoLastWater(db: Db, date: string): void {
     .get();
   if (last) db.delete(waterLogs).where(eq(waterLogs.id, last.id)).run();
 }
+
+export function waterTotals(db: Db, from: string, to: string): Map<string, number> {
+  const rows = db
+    .select({ date: waterLogs.date, ml: sql<number>`sum(${waterLogs.ml})` })
+    .from(waterLogs)
+    .where(and(gte(waterLogs.date, from), lte(waterLogs.date, to)))
+    .groupBy(waterLogs.date)
+    .all();
+  return new Map(rows.map((r) => [r.date, r.ml]));
+}

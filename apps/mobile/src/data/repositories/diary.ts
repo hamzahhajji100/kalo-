@@ -19,6 +19,8 @@ export interface NewEntry {
   amountLabel?: string | null;
   /** Absolute values for the eaten amount. */
   nutrients: Nutrients;
+  /** Absolute micronutrients for the eaten amount (mg/µg), if known. */
+  micros?: Record<string, number> | null;
   source: EntrySource;
 }
 
@@ -58,6 +60,7 @@ export function addEntry(db: Db, e: NewEntry): string {
       grams: e.grams ?? null,
       amountLabel: e.amountLabel ?? null,
       source: e.source,
+      microsJson: e.micros && Object.keys(e.micros).length ? JSON.stringify(e.micros) : null,
       ...nutrientFields(e.nutrients),
     })
     .run();
@@ -99,9 +102,20 @@ export function updateEntryAmount(
   if (!e.grams) throw new Error('Entry has no gram amount; edit its nutrients instead');
   const f = grams / e.grams;
   const scaled = entryNutrients(e);
+  const micros = e.microsJson
+    ? JSON.stringify(
+        Object.fromEntries(
+          Object.entries(JSON.parse(e.microsJson) as Record<string, number>).map(([k, v]) => [
+            k,
+            v * f,
+          ]),
+        ),
+      )
+    : null;
   db.update(diaryEntries)
     .set({
       grams,
+      microsJson: micros,
       amountLabel: amountLabel ?? null,
       ...nutrientFields({
         kcal: scaled.kcal * f,
@@ -163,6 +177,7 @@ export function copyEntries(
       grams: e.grams,
       amountLabel: e.amountLabel,
       nutrients: entryNutrients(e),
+      micros: e.microsJson ? (JSON.parse(e.microsJson) as Record<string, number>) : null,
       source: 'copy' as const,
     })),
   );
@@ -252,4 +267,37 @@ export function recentFoods(db: Db, limit = 20): RecentFood[] {
     .orderBy(desc(latest.lastEatenAt))
     .limit(limit)
     .all() as RecentFood[];
+}
+
+/** Summed micronutrients per day (only entries that carry micros), inclusive range. */
+export function dailyMicros(db: Db, from: string, to: string): Map<string, Record<string, number>> {
+  const rows = db
+    .select({ date: diaryEntries.date, micros: diaryEntries.microsJson })
+    .from(diaryEntries)
+    .where(
+      and(
+        gte(diaryEntries.date, from),
+        lte(diaryEntries.date, to),
+        isNotNull(diaryEntries.microsJson),
+      ),
+    )
+    .all();
+  const out = new Map<string, Record<string, number>>();
+  for (const r of rows) {
+    const day = out.get(r.date) ?? {};
+    for (const [k, v] of Object.entries(JSON.parse(r.micros!) as Record<string, number>))
+      day[k] = (day[k] ?? 0) + v;
+    out.set(r.date, day);
+  }
+  return out;
+}
+
+/** All entries in a date range, for export. */
+export function entriesBetween(db: Db, from: string, to: string): DiaryEntry[] {
+  return db
+    .select()
+    .from(diaryEntries)
+    .where(and(gte(diaryEntries.date, from), lte(diaryEntries.date, to)))
+    .orderBy(asc(diaryEntries.date), asc(diaryEntries.createdAt))
+    .all();
 }

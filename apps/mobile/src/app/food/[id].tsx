@@ -18,6 +18,7 @@ import { MealPicker } from '@/features/diary/components/MealPicker';
 import { keys, useDbMutation } from '@/features/diary/queries';
 import { useAddTarget } from '@/features/diary/useAddTarget';
 import { foodKey } from '@/features/foods/navigation';
+import { microsFor } from '@/features/foods/micros';
 import { NutritionTable } from '@/features/foods/NutritionTable';
 import { initialAmount, unitOptions, type UnitOption } from '@/features/foods/portions';
 import { useAnalysis } from '@/features/photo/analysisStore';
@@ -113,6 +114,7 @@ function FoodDetail({ food }: { food: Food }) {
         grams: grams!,
         amountLabel,
         nutrients: n,
+        micros: microsFor(food, grams!),
         source:
           food.source === 'recipe'
             ? 'recipe'

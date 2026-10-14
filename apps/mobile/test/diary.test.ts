@@ -223,3 +223,36 @@ describe('diary', () => {
     ]);
   });
 });
+
+describe('micronutrients', () => {
+  it('stores, scales and copies micros with entries', () => {
+    const db2 = createTestDb();
+    ensureDefaultMealTypes(db2);
+    const meal = listMealTypes(db2)[0]!.id;
+    const id = addEntry(db2, {
+      date: '2026-10-14',
+      mealTypeId: meal,
+      name: 'Spinat',
+      grams: 100,
+      nutrients: { kcal: 23, protein: 2.9, carbs: 3.6, fat: 0.4 },
+      micros: { ironMg: 2.7, calciumMg: 99 },
+      source: 'search',
+    });
+    updateEntryAmount(db2, id, 200);
+    expect(JSON.parse(getEntry(db2, id)!.microsJson!)).toEqual({ ironMg: 5.4, calciumMg: 198 });
+    copyEntries(db2, { fromDate: '2026-10-14', toDate: '2026-10-15' });
+    expect(JSON.parse(listEntries(db2, '2026-10-15')[0]!.microsJson!)).toEqual({
+      ironMg: 5.4,
+      calciumMg: 198,
+    });
+    const noMicros = addEntry(db2, {
+      date: '2026-10-14',
+      mealTypeId: meal,
+      name: 'X',
+      nutrients: { kcal: 1, protein: 0, carbs: 0, fat: 0 },
+      micros: {},
+      source: 'quick',
+    });
+    expect(getEntry(db2, noMicros)!.microsJson).toBeNull();
+  });
+});
